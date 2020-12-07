@@ -1,0 +1,11 @@
+.register-form{
+  display: flex;
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.form-body{
+  min-width: 100%;
+}
+
+
