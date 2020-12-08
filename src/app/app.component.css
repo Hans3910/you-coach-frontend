@@ -1,3 +1,73 @@
 .mat-toolbar{
   justify-content: space-between;
+  background-color: #f7f8fa;
+  border-bottom: lightgray solid;
+}
+
+mat-nav-list{
+  padding: 0 10px;
+}
+
+button{
+  margin:0 5px;
+}
+
+.sign-btn{
+  background-color: #FBC02D;
+}
+
+.register-btn{
+  background-color: #80CBC4;
+}
+
+
+footer{
+  background-color: #FBC02D;
+}
+
+a{
+  color: #817455;
+  text-decoration: none;
+}
+
+.footer-text{
+  color: #756f60;
+}
+
+.footer-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-youcoachdesc,
+.footer-navigation{
+  width: 50%;
+  padding: 20px;
+}
+
+.footer-youcoachdesc,
+.inline-footer-item{
+  margin-left: 20%;
+}
+
+.inline-footer{
+  display: flex;
+  min-height: 50px;
+  background-color: #EBB52D ;
+  align-items: center;
+}
+
+ul{
+  margin-top: 0;
+}
+
+
+li{
+  display: flex;
+  list-style-type: none;
+}
+
+a{
+  padding: 0;
+  margin: 0;
 }
