@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 
@@ -22,7 +23,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   declarations: [
     AppComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

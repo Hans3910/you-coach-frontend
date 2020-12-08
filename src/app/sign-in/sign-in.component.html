@@ -1,0 +1,31 @@
+<div class="signin-container">
+  <h1 style="text-align: center">{{title}}</h1>
+  <mat-card class="signin-form" layout="row" layout-align="end center">
+    <form class="form-body" layout="row" layout-align="center center">
+
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input #email type="email" matInput placeholder="Used to sign in">
+        </mat-form-field>
+      </div>
+      <div class="passwordField">
+        <mat-form-field appearance="standard">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="password">
+        </mat-form-field>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button class="resetbtn"> RESET PASSWORD
+          <mat-icon aria-hidden="false">autorenew</mat-icon>
+          <!--      <mat-icon aria-hidden="false" >send</mat-icon>-->
+        </button>
+        <button mat-raised-button class="signinbtn"> SIGN IN
+          <mat-icon aria-hidden="false">send</mat-icon>
+          <!--      <mat-icon aria-hidden="false" >send</mat-icon>-->
+        </button>
+      </div>
+    </form>
+
+  </mat-card>
+</div>

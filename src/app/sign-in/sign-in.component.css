@@ -1,36 +1,37 @@
-.register-form{
+h1{
+  color: #009688;
+  font-size: xx-large ;
+}
+
+.signin-form{
   display: flex;
   margin: 0 auto;
   max-width: 50%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  }
-
-.register-container{
-  margin: 50px 0;
 }
 
 .form-body{
   min-width: 100%;
 }
 
-.fullNameForm{
-  display: flex;
-}
-
 mat-form-field{
   width: 100%;
 }
 
-h1{
-  color: #009688;
-  font-size: xx-large ;
+.signin-container{
+  margin: 50px 0;
 }
 
-button{
+.resetbtn{
+  background-color: #80CBC4;
   margin: 2px;
-  background-color: #FBC02D;
 }
 
-.button-container{
+.signinbtn{
+  background-color: #FBC02D;
+  margin: 2px
+}
+
+.buttons{
   text-align: right;
 }
