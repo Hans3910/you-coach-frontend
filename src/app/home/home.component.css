@@ -1,0 +1,53 @@
+h1{
+  color: #009688;
+  font-size: xx-large ;
+}
+.homepage-intro-container{
+  justify-items: center;
+  text-align: center;
+}
+
+.coach-content-container{
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  padding: 10px;
+}
+.homepage-intro-container,
+.questions-container,
+.coach-content-container{
+  max-width: 60%;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.become-a-coach-container,
+.benefit-from-a-coach-container{
+  text-align: center;
+  margin: 10px;
+}
+
+.benefit-from-a-coach-container > p{
+  text-align: left;
+}
+
+.become-a-coach-container > p {
+  text-align: left;
+}
+
+.homepage-intro-container > p {
+  text-align: left;
+}
+
+img{
+  width: 100%;
+}
+
+button{
+  background-color: #FBC02D;
+  margin: 2px;
+}
+
+.questions-container{
+  text-align: center;
+}
