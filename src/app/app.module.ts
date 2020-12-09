@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ProfileInformationComponent } from './profile-information/profile-information.component';
+import {MatOptionModule} from "@angular/material/core";
 
 
 
@@ -24,22 +26,24 @@ import { SignInComponent } from './sign-in/sign-in.component';
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    SignInComponent
+    SignInComponent,
+    ProfileInformationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatListModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatCardModule,
-    HttpClientModule,
-    MatGridListModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatListModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatCardModule,
+        HttpClientModule,
+        MatGridListModule,
+        MatOptionModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
