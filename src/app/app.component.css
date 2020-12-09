@@ -1,5 +1,10 @@
 .mat-toolbar{
   justify-content: space-between;
+  width: 80%;
+  margin-left: 100px;
+}
+
+header{
   background-color: #f7f8fa;
   border-bottom: lightgray solid;
 }
