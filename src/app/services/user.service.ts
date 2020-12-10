@@ -25,4 +25,8 @@ export class UserService {
   public getUser(id: string): Observable<User> {
     return this.http.get<User>(`${this.url}/${id}`);
   }
+
+  public editUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.url}/${user.id}`, user);
+  }
 }

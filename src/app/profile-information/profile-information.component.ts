@@ -42,4 +42,11 @@ export class ProfileInformationComponent implements OnInit {
     this.getUserById();
     this.edit();
   }
+
+  public editUser(): void {
+    this.userService.editUser(this.user).subscribe(user => {
+      this.user = user;
+      this.edit();
+    });
+  }
 }
