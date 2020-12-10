@@ -29,15 +29,15 @@
         <form>
           <mat-form-field appearance="standard">
             <mat-label>First name</mat-label>
-            <input type="text" name="firstName" [ngModel]="user.firstName" matInput [disabled]="disableSelect.value">
+            <input type="text" name="firstName" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>Last name</mat-label>
-            <input type="text" name="lastName" [ngModel]="user.lastName" matInput [disabled]="disableSelect.value">
+            <input type="text" name="lastName" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>E-mail</mat-label>
-            <input type="text" name="email" [ngModel]="user.email" matInput [disabled]="disableSelect.value">
+            <input type="text" name="email" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>Class</mat-label>
@@ -53,11 +53,11 @@
             </select>
           </mat-form-field>
         </form>
-        <div class="layout-right buttons" >
+        <div class="layout-right buttons" *ngIf="!editable">
           <button class="save-btn" mat-raised-button routerLink="/">Save
             <mat-icon aria-hidden="false">save</mat-icon>
           </button>
-          <button class="cancel-btn" mat-raised-button routerLink="/">Cancel
+          <button class="cancel-btn" mat-raised-button (click)="cancel()">Cancel
             <mat-icon aria-hidden="false">cancel</mat-icon>
           </button>
         </div>
