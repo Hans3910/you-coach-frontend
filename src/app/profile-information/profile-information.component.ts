@@ -16,6 +16,7 @@ export class ProfileInformationComponent implements OnInit {
   disableSelect = new FormControl(true);
   user = new UserClass('', '', '', '');
   defaultString = 'emptyField';
+
   constructor(private userService: UserService, private route: ActivatedRoute) {
   }
 
@@ -35,5 +36,10 @@ export class ProfileInformationComponent implements OnInit {
       this.user = user;
       console.log(this.user);
     });
+  }
+
+  public cancel(): void {
+    this.getUserById();
+    this.edit();
   }
 }
