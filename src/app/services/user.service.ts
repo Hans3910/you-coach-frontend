@@ -21,4 +21,8 @@ export class UserService {
   public signIn(email: string): Observable<User> {
     return this.http.get<User>(`${this.url}/signIn?email=${email}`);
   }
+
+  public getUser(id: string): Observable<User> {
+    return this.http.get<User>(`${this.url}/${id}`);
+  }
 }
