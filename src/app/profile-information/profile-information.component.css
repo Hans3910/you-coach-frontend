@@ -113,3 +113,20 @@ mat-card {
   background-color: #EBB52D;
   margin: 5px;
 }
+
+.save-btn{
+  background-color: #FBC02D;
+  width: 15%;
+  margin: 5px;
+}
+
+.cancel-btn{
+  background-color: #80CBC4;
+  width: 15%;
+  margin: 5px;
+}
+.buttons{
+  width: 100%;
+  float: right;
+
+}

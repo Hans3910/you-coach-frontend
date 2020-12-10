@@ -29,30 +29,38 @@
         <form>
           <mat-form-field appearance="standard">
             <mat-label>First name</mat-label>
-            <input type ="text" name="firstName" [ngModel]="user.firstName"  matInput [disabled]="disableSelect.value">
+            <input type="text" name="firstName" [ngModel]="user.firstName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
-          <mat-form-field appearance="standard" >
+          <mat-form-field appearance="standard">
             <mat-label>Last name</mat-label>
-            <input type ="text" name="lastName" [ngModel]="user.lastName" matInput [disabled]="disableSelect.value">
+            <input type="text" name="lastName" [ngModel]="user.lastName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
-          <mat-form-field appearance="standard" >
+          <mat-form-field appearance="standard">
             <mat-label>E-mail</mat-label>
-            <input type ="text" name="email"  [ngModel]="user.email" matInput [disabled]="disableSelect.value">
+            <input type="text" name="email" [ngModel]="user.email" matInput [disabled]="disableSelect.value">
           </mat-form-field>
-          <mat-form-field appearance="standard" >
+          <mat-form-field appearance="standard">
             <mat-label>Class</mat-label>
-            <input type ="text" name="class" matInput [disabled]="disableSelect.value">
+            <input type="text" name="class" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>You-Coach Role</mat-label>
             <select matNativeControl name="role" [disabled]="disableSelect.value">
               <option value="" selected></option>
               <option value="coachee">Coachee</option>
-              <option value="coach" >Coach</option>
+              <option value="coach">Coach</option>
               <option value="admin">Admin</option>
             </select>
           </mat-form-field>
         </form>
+        <div class="layout-right buttons" >
+          <button class="save-btn" mat-raised-button routerLink="/">Save
+            <mat-icon aria-hidden="false">save</mat-icon>
+          </button>
+          <button class="cancel-btn" mat-raised-button routerLink="/">Cancel
+            <mat-icon aria-hidden="false">cancel</mat-icon>
+          </button>
+        </div>
       </mat-card-content>
     </div>
   </mat-card>
