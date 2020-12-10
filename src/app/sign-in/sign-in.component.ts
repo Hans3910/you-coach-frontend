@@ -20,7 +20,10 @@ export class SignInComponent implements OnInit {
 
   signIn(email: string): void {
     let loggedInUser: User | undefined;
-    this.userService.signIn(email).subscribe(user => loggedInUser = user);
-    this.router.navigate([`/user/${loggedInUser?.id}`]);
+    this.userService.signIn(email).subscribe(user => {
+      loggedInUser = user;
+      this.router.navigate([`/user/${loggedInUser?.id}`]);
+    });
+
   }
 }
