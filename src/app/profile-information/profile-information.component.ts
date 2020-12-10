@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import {User} from '../model/User';
 import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {UserClass} from '../model/UserClass';
 
 @Component({
   selector: 'app-profile-information',
@@ -13,8 +14,8 @@ export class ProfileInformationComponent implements OnInit {
 
   editable = true;
   disableSelect = new FormControl(true);
-  user: User | undefined;
-
+  user = new UserClass('', '', '', '');
+  defaultString = 'emptyField';
   constructor(private userService: UserService, private route: ActivatedRoute) {
   }
 
