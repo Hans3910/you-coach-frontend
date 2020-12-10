@@ -18,6 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ProfileInformationComponent } from './profile-information/profile-information.component';
 import {MatOptionModule} from "@angular/material/core";
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -29,21 +30,22 @@ import {MatOptionModule} from "@angular/material/core";
     SignInComponent,
     ProfileInformationComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatListModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatIconModule,
-        MatCardModule,
-        HttpClientModule,
-        MatGridListModule,
-        MatOptionModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatOptionModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

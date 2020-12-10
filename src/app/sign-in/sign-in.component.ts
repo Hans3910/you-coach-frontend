@@ -23,5 +23,4 @@ export class SignInComponent implements OnInit {
     this.userService.signIn(email).subscribe(user => loggedInUser = user);
     this.router.navigate([`/user/${loggedInUser?.id}`]);
   }
-
 }
