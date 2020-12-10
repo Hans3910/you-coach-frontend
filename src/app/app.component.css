@@ -25,6 +25,10 @@ button{
   background-color: #80CBC4;
 }
 
+.signout-btn{
+  background-color: lightgrey;
+}
+
 
 footer{
   background-color: #FBC02D;
