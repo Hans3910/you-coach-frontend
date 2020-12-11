@@ -91,3 +91,7 @@ a{
 .footer-navigation > h1{
   margin: 0 5px 5px 45px;
 }
+
+mat-nav-list > a {
+  margin: 10px;
+}

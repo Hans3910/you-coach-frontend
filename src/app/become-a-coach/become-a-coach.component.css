@@ -67,7 +67,6 @@ mat-form-field {
 /* unvisited link */
 a:link {
   color: black;
-  background-color: white;
   text-decoration: none;
   border: solid 1px;
   border-color: lightgray;
@@ -124,14 +123,19 @@ mat-card {
 }
 
 .send-mail-btn {
-  background-color: #FBC02D;
   width: 15%;
   margin: 5px;
   float: right !important;
+  background: #FBC02D;
 
 }
 
 .buttons {
   width: 100%;
-
 }
+
+.buttons > a {
+  background: #FBC02D;
+}
+
+
