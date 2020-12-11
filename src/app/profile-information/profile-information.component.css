@@ -120,6 +120,7 @@ mat-card {
   width: 15%;
   margin: 5px;
   float: right !important;
+  min-width: 100px;
 }
 
 .cancel-btn{
@@ -127,6 +128,7 @@ mat-card {
   width: 15%;
   margin: 5px;
   float: right !important;
+  min-width: 100px;
 }
 .buttons{
   width: 100%;
