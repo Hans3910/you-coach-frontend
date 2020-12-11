@@ -118,12 +118,14 @@ mat-card {
   background-color: #FBC02D;
   width: 15%;
   margin: 5px;
+  min-width: 100px;
 }
 
 .cancel-btn{
   background-color: #80CBC4;
   width: 15%;
   margin: 5px;
+  min-width: 100px;
 }
 .buttons{
   width: 100%;
