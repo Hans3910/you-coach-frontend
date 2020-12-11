@@ -19,6 +19,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ProfileInformationComponent } from './profile-information/profile-information.component';
 import {MatOptionModule} from '@angular/material/core';
 import {FormsModule} from '@angular/forms';
+import { BecomeACoachComponent } from './become-a-coach/become-a-coach.component';
 
 
 
@@ -28,7 +29,8 @@ import {FormsModule} from '@angular/forms';
     RegisterComponent,
     HomeComponent,
     SignInComponent,
-    ProfileInformationComponent
+    ProfileInformationComponent,
+    BecomeACoachComponent
   ],
   imports: [
     BrowserModule,
