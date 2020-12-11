@@ -24,7 +24,13 @@
       </button>
     </div>
     <div class="pro-info-body">
-      <img mat-card-avatar src="assets/triden_bump.jpg">
+      <ng-container *ngIf="user.pictureUrl === '';then profileIsPresent; else defaultProfile"></ng-container>
+      <ng-template #defaultProfile>
+        <img mat-card-avatar [src]="defaultPicture">
+      </ng-template>
+      <ng-template #profileIsPresent>
+        <img mat-card-avatar [src]="user.pictureUrl">
+      </ng-template>
       <mat-card-content>
         <form>
           <mat-form-field appearance="standard">
@@ -41,6 +47,10 @@
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>Class</mat-label>
+            <input type="text" name="class" matInput [disabled]="disableSelect.value">
+          </mat-form-field>
+          <mat-form-field appearance="standard" *ngIf="!editable">
+            <mat-label>PictureUrl</mat-label>
             <input type="text" name="class" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">

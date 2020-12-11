@@ -14,8 +14,9 @@ export class ProfileInformationComponent implements OnInit {
 
   editable = true;
   disableSelect = new FormControl(true);
-  user = new UserClass('', '', '', '');
+  user = new UserClass('', '', '', '', '');
   defaultString = 'emptyField';
+  defaultPicture = 'assets/defaultProfile.svg';
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
   }
