@@ -38,7 +38,7 @@ mat-card-content{
 }
 
 mat-form-field{
-  /*it was 80*/
+  /*width:80%;*/
   width: 90%;
 }
 
@@ -91,7 +91,7 @@ img {
 }
 
 mat-card {
-/*it was 80%*/
+/*width:80%;*/
   width: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -131,6 +131,6 @@ mat-card {
 .buttons{
   width: 100%;
   float: right;
-  /*it was margin-left: 300px;*/
+  /*margin-left: 300px;*/
   margin-right: 500px;
 }
