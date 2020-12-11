@@ -1,0 +1,36 @@
+<nav class="hnavigation">
+  <div class="hlinkcontainer">
+    <a>MY PROFILE</a>
+    <a>FIND A COACH</a>
+  </div>
+</nav>
+
+<div class="profile-container">
+  <nav class="left-coachee-menu">
+    <h3>My Profile</h3>
+    <a routerLink="/users/:id">Profile information</a>
+    <a routerLink="/coaching-sessions">Coaching sessions</a>
+    <a class="link-here" routerLink="/becomeacoach">Become a coach</a>
+  </nav>
+  <mat-card>
+    <div class="prof-info-header">
+      <mat-card-title>Apply to become a coach</mat-card-title>
+    </div>
+    <div class="pro-info-body">
+      <img src="assets/under-construction.jpg">
+      <mat-card-content>
+        <p>This part of the application is currently still under construction.
+          In order to become a coach please send an email to your administrator<br>
+          with the following information:<br><br>
+          Your full name<br>
+          Your motivation to become a coach<br>
+          The list of topics (topic + grade) on which you would like to coach</p>
+        <div class="buttons">
+          <button class="send-mail-btn" mat-raised-button>SEND MAIL
+            <mat-icon aria-hidden="false">send</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
