@@ -20,6 +20,9 @@ import { ProfileInformationComponent } from './profile-information/profile-infor
 import {MatOptionModule} from '@angular/material/core';
 import {FormsModule} from '@angular/forms';
 import { BecomeACoachComponent } from './become-a-coach/become-a-coach.component';
+import { CoachProfileInformationComponent } from './coach-profile-information/coach-profile-information.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 
@@ -30,7 +33,8 @@ import { BecomeACoachComponent } from './become-a-coach/become-a-coach.component
     HomeComponent,
     SignInComponent,
     ProfileInformationComponent,
-    BecomeACoachComponent
+    BecomeACoachComponent,
+    CoachProfileInformationComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { BecomeACoachComponent } from './become-a-coach/become-a-coach.component
     MatInputModule,
     MatIconModule,
     MatCardModule,
+    MatButtonToggleModule,
     HttpClientModule,
     MatGridListModule,
     MatOptionModule,

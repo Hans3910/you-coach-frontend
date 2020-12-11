@@ -1,0 +1,111 @@
+<nav class="hnavigation">
+  <div class="hlinkcontainer">
+    <a>MY PROFILE</a>
+    <a>FIND A COACH</a>
+    <a>MY COACH PROFILE</a>
+  </div>
+</nav>
+<div class="profile-container">
+  <nav class="left-coachee-menu">
+    <h3>My Profile</h3>
+    <a class="link-here" routerLink="/users/:id">Profile information</a>
+    <a routerLink="/coaching-sessions">Coaching sessions</a>
+    <a routerLink="/becomeacoach">Request profile change</a>
+  </nav>
+  <div class="cards">
+
+    <mat-card class="mat-card-profile-information">
+      <div class="prof-info-header">
+        <mat-card-title>Profile Information</mat-card-title>
+      </div>
+      <div class="img-and-form-container">
+      <img mat-card-avatar [src]="user.pictureUrl">
+      <form>
+        <mat-form-field appearance="standard">
+          <mat-label>First name</mat-label>
+          <input type="text" name="firstName" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Last name</mat-label>
+          <input type="text" name="lastName" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>E-mail</mat-label>
+          <input type="text" name="email" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Class</mat-label>
+          <input type="text" name="class" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard" *ngIf="!editable">
+          <mat-label>PictureUrl</mat-label>
+          <input type="text" name="picture" [(ngModel)]="user.pictureUrl" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+      </form>
+      </div>
+    </mat-card>
+    <div class="line"></div>
+    <mat-card>
+      <div class="prof-info-header">
+        <mat-card-title>Coach Information</mat-card-title>
+        <button mat-mini-fab class="edit-btn">
+          <mat-icon>create</mat-icon>
+        </button>
+      </div>
+      <form>
+        <mat-form-field appearance="standard">
+          <mat-label>Coach XP</mat-label>
+          <input type="text" name="coachxp" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Introduction</mat-label>
+          <input type="text" name="introduction" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Availability</mat-label>
+          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+      </form>
+    </mat-card>
+    <div class="line"></div>
+    <mat-card>
+      <div class="prof-info-header">
+        <mat-card-title>Coaching Topics</mat-card-title>
+        <button mat-mini-fab class="edit-btn">
+          <mat-icon>create</mat-icon>
+        </button>
+      </div>
+      <form>
+        <mat-form-field appearance="standard">
+          <mat-label>Mathematics</mat-label>
+          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
+          <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="italic"><mat-icon>filter_2</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_3</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="bold"><mat-icon>filter_4</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="italic"><mat-icon>filter_5</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_6</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_7</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-form-field appearance="standard">
+          <mat-label>Biology</mat-label>
+          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+        </mat-form-field>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
+          <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="italic"><mat-icon>filter_2</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_3</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="bold"><mat-icon>filter_4</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="italic"><mat-icon>filter_5</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_6</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="underline"><mat-icon>filter_7</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+
+
+      </form>
+    </mat-card>
+
+  </div>
+</div>

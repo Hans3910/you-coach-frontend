@@ -1,5 +1,5 @@
 .hnavigation {
-  background-color: #FBC02D;
+  background-color: #80CBC4;
   min-height: 40px;
   border-bottom: lightgray solid;
 }
@@ -8,19 +8,13 @@
   margin-left: 120px;
   display: flex;
   justify-content: space-between;
-  width: 20%;
-}
-
-h3 {
-  margin-bottom: 0;
-  font-size: large;
+  width: 30%;
 }
 
 a {
   font-size: medium;
   padding: 8px;
 }
-
 
 .left-coachee-menu {
   margin: 0 35px 15px 15px;
@@ -30,22 +24,12 @@ a {
 
 }
 
-mat-card-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between ;
-}
-
-mat-form-field{
-  /*width:80%;*/
-  width: 90%;
-}
 
 .link-here {
-  background-color: #FBC02D;
+  background-color: #80CBC4;
 }
 
-.profile-container{
+.profile-container {
   display: flex;
   margin: 50px;
   margin-bottom: 100px;
@@ -83,56 +67,70 @@ a:active {
   text-decoration: none;
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  /*width:80%;*/
+  min-width: 874px;
+  width: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+mat-form-field {
+  /*width:80%;*/
+  width: 90%;
+}
+
 img {
   margin: 20px;
   width: 200px;
   height: 200px;
 }
 
-mat-card {
-/*width:80%;*/
-  min-width: 874px;
-  width: 50%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+.mat-card-profile-information {
+  display: flex;
+  flex-direction: column;
 }
 
 .prof-info-header {
   display: flex;
   justify-content: space-between;
-  border-left:white;
-  border-right:white;
+  border-left: white;
+  border-right: white;
   border-top: white;
   border-bottom: lightgray;
   border-style: solid;
 }
 
-.pro-info-body {
+.img-and-form-container {
   display: flex;
+  flex-direction: row;
+}
+
+.line{
+  width: 90%;
+  border-bottom: 1px solid lightgrey;
+  margin: 20px 0;
+}
+
+.p-container{
+  display: flex;
+  flex-direction: column;
 }
 
 .edit-btn{
-  background-color: #EBB52D;
-  margin: 5px;
-}
-
-.save-btn{
-  background-color: #FBC02D;
-  width: 15%;
-  margin: 5px;
-  float: right !important;
-  min-width: 100px;
-}
-
-.cancel-btn{
   background-color: #80CBC4;
-  width: 15%;
   margin: 5px;
-  float: right !important;
-  min-width: 100px;
 }
-.buttons{
-  width: 100%;
-  float: right;
-  /*margin-left: 300px;*/
-  margin-right: 500px;
+/*:host .mat-button-toggle{*/
+/*  border-radius: 20px !important;*/
+/*}*/
+
+.mat-button-toggle-checked {
+  background-color: #80CBC4 ;
 }
+
+

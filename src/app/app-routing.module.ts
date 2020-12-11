@@ -5,6 +5,7 @@ import {RegisterComponent} from './register/register.component';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {ProfileInformationComponent} from './profile-information/profile-information.component';
 import {BecomeACoachComponent} from './become-a-coach/become-a-coach.component';
+import {CoachProfileInformationComponent} from './coach-profile-information/coach-profile-information.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'signin', component: SignInComponent},
     {path: 'user/:id', component: ProfileInformationComponent},
-    {path: 'becomeacoach', component: BecomeACoachComponent}
+    {path: 'becomeacoach', component: BecomeACoachComponent},
+    {path: 'coach/:id', component: CoachProfileInformationComponent}
   ]
 ;
 
