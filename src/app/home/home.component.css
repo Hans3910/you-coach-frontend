@@ -51,3 +51,7 @@ button{
 .questions-container{
   text-align: center;
 }
+
+.question-button-container > a{
+  background-color: #FBC02D;
+}
