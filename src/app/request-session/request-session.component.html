@@ -3,52 +3,21 @@
   <mat-card class="request-form" layout="row" layout-align="end center">
     <form #sessionForm="ngForm" (ngSubmit)="newRequestSession()">
       <mat-form-field appearance="standard">
-        <mat-label>On which topic/subject would you like to have a coaching session?</mat-label>
+        <mat-label>On which topic/subject would you like to have a coaching session? </mat-label>
         <input type="text" #subject=ngModel required="true" [class.is-invalid]="subject.invalid&&subject.touched"
                name="subject" [(ngModel)]="requestSession.subject" matInput>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Date</mat-label>
-
-          <input matInput type="date" id="date" name="date" class="form-control" required [min]="allowedDate"
-                 pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="requestSession.requestedDate" #date="ngModel">
-
-        <div class="datetime-alert" [class.is-invalid]="date.invalid && (date.dirty || date.touched)"
-             class="alert alert-danger">
-          <div *ngIf="date.errors && date.errors.required">
-            Date is required.
-          </div>
-          <div *ngIf="date.errors && date.errors.min">
-            The date should be today or in the future.
-          </div>
-        </div>
+        <input matInput type="date" id="date" name="date" class="form-control" required [min]="allowedDate"
+               pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="requestSession.requestedDate" #date="ngModel"
+               [class.is-invalid]="date.invalid&&date.touched">
       </mat-form-field>
       <mat-form-field appearance="standard">
-
-          <mat-label>Time</mat-label>
-          <input matInput type="time" id="time" name="requestedTime" class="form-control" required
-                 [(ngModel)]="requestSession.requestedTime" #requestedTime="ngModel">
-
-        <div *ngIf="requestedTime.invalid && (requestedTime.dirty || requestedTime.touched)"
-             class="alert alert-danger">
-          <div *ngIf="requestedTime.errors && requestedTime.errors.required">
-            Time is required.
-          </div>
-        </div>
+        <mat-label>Time</mat-label>
+        <input matInput type="time" id="time" name="requestedTime" class="form-control" required
+               [(ngModel)]="requestSession.requestedTime" #requestedTime="ngModel">
       </mat-form-field>
-
-      <!--  <div class="dateTime">-->
-      <!--  <mat-form-field appearance="standard">-->
-      <!--    <mat-label>Date {{allowedDate}}</mat-label>-->
-      <!--    <input [min]="allowedDate" [matDatepicker] = "picker" #requestedDate=ngModel required="true" [class.is-invalid]="requestedDate.invalid&&requestedDate.touched" name="subject" [(ngModel)]="requestSession.requestedDate" matInput>-->
-      <!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-      <!--    <mat-datepicker #picker></mat-datepicker>-->
-      <!--  </mat-form-field>-->
-      <!--  <mat-form-field appearance="standard">-->
-      <!--    <mat-label>Time</mat-label>-->
-      <!--    <input type ="text" #requestedTime=ngModel required="true" [class.is-invalid]="subject.invalid&&subject.touched" name="subject" [(ngModel)]="requestSession.requestedTime" matInput>-->
-      <!--  </mat-form-field>-->
-      <!--</div>-->
       <mat-form-field appearance="standard">
         <mat-label>Location</mat-label>
         <input type="text" name="location" [(ngModel)]="requestSession.location" matInput>
@@ -57,7 +26,10 @@
         <mat-label>Remarks for the coach?</mat-label>
         <input type="text" name="remarks" [(ngModel)]="requestSession.remarks" matInput>
       </mat-form-field>
-      <button mat-raised-button [disabled]="sessionForm.invalid" type="submit">REQUEST A SESSION</button>
+      <button mat-raised-button [disabled]="sessionForm.invalid" type="submit">REQUEST A SESSION
+        <mat-icon aria-hidden="false">send</mat-icon>
+      </button>
+
     </form>
 
   </mat-card>

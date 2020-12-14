@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestSession} from '../model/request-session';
+import {SessionService} from '../services/session.service';
 
 
 
@@ -11,10 +12,10 @@ import {RequestSession} from '../model/request-session';
 export class RequestSessionComponent implements OnInit {
 
   title = 'Request a session';
-  requestSession = new RequestSession('', '', '', '', '', '', '');
+  requestSession = new RequestSession('fa6f0fce-a3c3-453c-827b-cd3579ebb576', '123e4567-e89b-42d3-a456-556642440000', '', '', '', '', '');
   allowedDate = new Date().toISOString().split('T')[0];
 
-  constructor() {
+  constructor(private sessionService: SessionService) {
   }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class RequestSessionComponent implements OnInit {
 
   newRequestSession(): void {
     console.log(this.requestSession);
+    this.sessionService.createSession(this.requestSession);
   }
 
   // myFilter = (d: Date | null): boolean => {
