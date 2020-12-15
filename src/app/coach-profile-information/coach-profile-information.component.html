@@ -26,26 +26,22 @@
         <ng-template #profileIsPresent>
           <img mat-card-avatar [src]="coach.userInfo.pictureUrl">
         </ng-template>
-      <form>
+      <form >
         <mat-form-field appearance="standard">
           <mat-label>First name</mat-label>
-          <input type="text" name="firstName" [(ngModel)]="coach.userInfo.firstName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="firstName" [(ngModel)]="coach.userInfo.firstName" matInput disabled="true">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Last name</mat-label>
-          <input type="text" name="lastName" [(ngModel)]="coach.userInfo.lastName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="lastName" [(ngModel)]="coach.userInfo.lastName" matInput disabled="true">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>E-mail</mat-label>
-          <input type="text" name="email" [(ngModel)]="coach.userInfo.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="email" [(ngModel)]="coach.userInfo.email" matInput disabled="true">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Class</mat-label>
-          <input type="text" name="class" matInput [disabled]="disableSelect.value">
-        </mat-form-field>
-        <mat-form-field appearance="standard" *ngIf="!editable">
-          <mat-label>PictureUrl</mat-label>
-          <input type="text" name="picture" [(ngModel)]="coach.userInfo.pictureUrl" matInput [disabled]="disableSelect.value">
+          <input type="text" name="class" matInput disabled="true">
         </mat-form-field>
       </form>
       </div>
@@ -54,61 +50,75 @@
     <mat-card>
       <div class="prof-info-header">
         <mat-card-title>Coach Information</mat-card-title>
-        <button mat-mini-fab class="edit-btn">
+        <button mat-mini-fab class="edit-btn" (click)="editProfile()">
           <mat-icon>create</mat-icon>
         </button>
       </div>
-      <form>
+      <form #coachInformationForm="ngForm" (ngSubmit)="editCoach()">
         <mat-form-field appearance="standard">
           <mat-label>Coach XP</mat-label>
-          <input type="text" name="coachxp" [(ngModel)]="user.userInfo.firstName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="coachxp" [(ngModel)]="coach.coachXp" matInput disabled="true">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Introduction</mat-label>
-          <input type="text" name="introduction" [(ngModel)]="user.userInfo.lastName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="introduction" [(ngModel)]="coach.introduction" matInput [disabled]="disableProfile.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Availability</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="availability" [(ngModel)]="coach.availability" matInput [disabled]="disableProfile.value">
         </mat-form-field>
+        <div class="layout-right buttons" *ngIf="!disableProfile.value">
+          <button class="save-btn" mat-raised-button type="submit">Save
+            <mat-icon aria-hidden="false">save</mat-icon>
+          </button>
+          <button class="cancel-btn" mat-raised-button (click)="cancel()">Cancel
+            <mat-icon aria-hidden="false">cancel</mat-icon>
+          </button>
+        </div>
       </form>
     </mat-card>
     <div class="line"></div>
     <mat-card>
       <div class="prof-info-header">
         <mat-card-title>Coaching Topics</mat-card-title>
-        <button mat-mini-fab class="edit-btn">
+        <button mat-mini-fab class="edit-btn" (click)="editTopic()">
           <mat-icon>create</mat-icon>
         </button>
       </div>
-      <form>
+      <form #coachTopicsForm="ngForm" (ngSubmit)="editCoach()">
         <mat-form-field appearance="standard">
-          <mat-label>Mathematics</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="availability" [(ngModel)]="coach.topicOne.name" matInput [disabled]="disableTopics.value">
         </mat-form-field>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
-          <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="italic"><mat-icon>filter_2</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_3</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="bold"><mat-icon>filter_4</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="italic"><mat-icon>filter_5</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_6</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_7</mat-icon></mat-button-toggle>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true" [disabled]="disableTopics.value">
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicOneFirstGrade()" ><mat-icon class="grade-icon">filter_1</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.secondGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneSecondGrade()"><mat-icon class="grade-icon">filter_2</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.thirdGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneThirdGrade()" ><mat-icon class="grade-icon">filter_3</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fourthGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneFourthGrade()"><mat-icon class="grade-icon">filter_4</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fifthGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneFifthGrade()"><mat-icon class="grade-icon">filter_5</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.sixthGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneSixthGrade()"><mat-icon class="grade-icon">filter_6</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneSeventhGrade()"><mat-icon class="grade-icon">filter_7</mat-icon></mat-button-toggle>
         </mat-button-toggle-group>
         <mat-form-field appearance="standard">
-          <mat-label>Biology</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
+          <mat-label>{{coach.topicTwo.name}}</mat-label>
+          <input type="text" name="availability" [(ngModel)]="coach.topicTwo.name" matInput [disabled]="disableTopics.value">
         </mat-form-field>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
-          <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="italic"><mat-icon>filter_2</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_3</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="bold"><mat-icon>filter_4</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="italic"><mat-icon>filter_5</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_6</mat-icon></mat-button-toggle>
-          <mat-button-toggle value="underline"><mat-icon>filter_7</mat-icon></mat-button-toggle>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true" [disabled]="disableTopics.value">
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.firstGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoFirstGrade()" ><mat-icon class="grade-icon">filter_1</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.secondGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoSecondGrade()" ><mat-icon class="grade-icon">filter_2</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.thirdGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoThirdGrade()" ><mat-icon class="grade-icon">filter_3</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fourthGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoFourthGrade()" ><mat-icon class="grade-icon">filter_4</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fifthGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoFifthGrade()" ><mat-icon class="grade-icon">filter_5</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.sixthGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoSixthGrade()" ><mat-icon class="grade-icon">filter_6</mat-icon></mat-button-toggle>
+          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.seventhGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoSeventhGrade()" ><mat-icon class="grade-icon">filter_7</mat-icon></mat-button-toggle>
         </mat-button-toggle-group>
-
+        <div class="layout-right buttons" *ngIf="!disableTopics.value">
+          <button class="save-btn" mat-raised-button type="submit">Save
+            <mat-icon aria-hidden="false">save</mat-icon>
+          </button>
+          <button class="cancel-btn" mat-raised-button (click)="cancel()">Cancel
+            <mat-icon aria-hidden="false">cancel</mat-icon>
+          </button>
+        </div>
 
       </form>
     </mat-card>

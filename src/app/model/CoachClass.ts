@@ -4,6 +4,7 @@ export class CoachClass implements Coach {
   availability: string;
   coachId: string;
   coachXp: number;
+  introduction: string;
   topicOne: {
     topicId: string; name: string; fifthGrade: boolean;
     firstGrade: boolean; fourthGrade: boolean; sixthGrade: boolean;
@@ -17,7 +18,7 @@ export class CoachClass implements Coach {
   userInfo: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string };
 
 
-  constructor(availability: string, coachId: string, coachXp: number,
+  constructor(availability: string, coachId: string, coachXp: number, introduction: string,
               topicOne: {
                 topicId: string; name: string; fifthGrade: boolean; firstGrade: boolean;
                 fourthGrade: boolean; sixthGrade: boolean; secondGrade: boolean; thirdGrade: boolean;
@@ -35,5 +36,6 @@ export class CoachClass implements Coach {
     this.topicOne = topicOne;
     this.topicTwo = topicTwo;
     this.userInfo = userInfo;
+    this.introduction = introduction;
   }
 }

@@ -12,9 +12,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CoachProfileInformationComponent implements OnInit {
   editable = true;
-  disableSelect = new FormControl(true);
+  disableProfile = new FormControl(true);
+  disableTopics = new FormControl(true);
   user = new UserClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
-  coach = new CoachClass('', '', 0, {
+  coach = new CoachClass('', '', 0, '', {
     topicId: '',
     name: '',
     fifthGrade: false,
@@ -53,4 +54,79 @@ export class CoachProfileInformationComponent implements OnInit {
       console.log(this.coach);
     });
   }
+
+  editCoach(): void {
+    console.log(this.coach);
+  }
+
+  cancel(): void {
+    this.getCoach();
+  }
+
+  editProfile(): void {
+    this.disableProfile.setValue(!this.disableProfile.value);
+  }
+
+  editTopic(): void {
+    this.disableTopics.setValue(!this.disableTopics.value);
+  }
+
+  topicOneFirstGrade(): void {
+    this.coach.topicOne.firstGrade = !this.coach.topicOne.firstGrade;
+  }
+
+  topicOneSecondGrade(): void {
+    this.coach.topicOne.secondGrade = !this.coach.topicOne.secondGrade;
+  }
+
+  topicOneThirdGrade(): void {
+    this.coach.topicOne.thirdGrade = !this.coach.topicOne.thirdGrade;
+  }
+
+  topicOneFourthGrade(): void {
+    this.coach.topicOne.fourthGrade = !this.coach.topicOne.fourthGrade;
+  }
+
+  topicOneFifthGrade(): void {
+    this.coach.topicOne.fifthGrade = !this.coach.topicOne.fifthGrade;
+  }
+
+  topicOneSixthGrade(): void {
+    this.coach.topicOne.sixthGrade = !this.coach.topicOne.sixthGrade;
+  }
+
+  topicOneSeventhGrade(): void {
+    this.coach.topicOne.seventhGrade = !this.coach.topicOne.seventhGrade;
+  }
+
+  topicTwoFirstGrade(): void {
+    this.coach.topicTwo.firstGrade = !this.coach.topicTwo.firstGrade;
+  }
+
+  topicTwoSecondGrade(): void {
+    this.coach.topicTwo.secondGrade = !this.coach.topicTwo.secondGrade;
+  }
+
+  topicTwoThirdGrade(): void {
+    this.coach.topicTwo.thirdGrade = !this.coach.topicTwo.thirdGrade;
+  }
+
+  topicTwoFourthGrade(): void {
+    this.coach.topicTwo.fourthGrade = !this.coach.topicTwo.fourthGrade;
+  }
+
+  topicTwoFifthGrade(): void {
+    this.coach.topicTwo.fifthGrade = !this.coach.topicTwo.fifthGrade;
+  }
+
+  topicTwoSixthGrade(): void {
+    this.coach.topicTwo.sixthGrade = !this.coach.topicTwo.sixthGrade;
+  }
+
+  topicTwoSeventhGrade(): void {
+    this.coach.topicTwo.seventhGrade = !this.coach.topicTwo.seventhGrade;
+  }
+
+
+
 }

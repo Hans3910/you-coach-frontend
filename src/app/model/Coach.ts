@@ -9,6 +9,7 @@ export interface Coach {
   };
   coachXp: number;
   availability: string;
+  introduction: string;
   topicOne: {
     topicId: string,
     name: string,
