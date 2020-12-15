@@ -70,12 +70,12 @@ a:active {
 .cards {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  max-width: 1100px;
+  min-width: 874px;
 }
 
 mat-card {
-  /*width:80%;*/
-  min-width: 874px;
-  width: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -111,7 +111,7 @@ img {
 }
 
 .line{
-  width: 90%;
+  width: 100%;
   border-bottom: 1px solid lightgrey;
   margin: 20px 0;
 }
@@ -136,4 +136,27 @@ img {
 .grade-icon{
   color: #000000DE;
 }
+
+.save-btn{
+  background-color: #FBC02D;
+  width: 15%;
+  margin: 5px;
+  float: right !important;
+  min-width: 100px;
+}
+
+.cancel-btn{
+  background-color: #80CBC4;
+  width: 15%;
+  margin: 5px;
+  float: right !important;
+  min-width: 100px;
+}
+.buttons{
+  width: 100%;
+  float: right;
+  /*margin-left: 300px;*/
+  margin-right: 20px;
+}
+
 

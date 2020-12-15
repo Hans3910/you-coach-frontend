@@ -99,7 +99,6 @@
           <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneSeventhGrade()"><mat-icon class="grade-icon">filter_7</mat-icon></mat-button-toggle>
         </mat-button-toggle-group>
         <mat-form-field appearance="standard">
-          <mat-label>{{coach.topicTwo.name}}</mat-label>
           <input type="text" name="availability" [(ngModel)]="coach.topicTwo.name" matInput [disabled]="disableTopics.value">
         </mat-form-field>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true" [disabled]="disableTopics.value">
