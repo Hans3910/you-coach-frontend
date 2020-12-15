@@ -4,7 +4,8 @@ import {FormControl, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../Exceptions/error-state-matcher';
 import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
-import {User} from '../model/User';
+import {Coachee} from '../model/Coachee';
+
 
 
 @Component({
@@ -33,11 +34,12 @@ export class RegisterComponent implements OnInit {
 
   register(firstName: string, lastName: string, email: string): void {
     this.newUser = {firstName, lastName, email};
-    let loggedInUser: User;
+    let loggedInUser: Coachee;
     console.log(this.newUser);
     this.userService.registerUser(this.newUser).subscribe(user => {
       loggedInUser = user;
-      this.router.navigate([`/user/${loggedInUser.id}`]);
+      console.log(loggedInUser);
+      this.router.navigate([`/user/${loggedInUser.userInfo.userId}`]);
     });
 }
 }

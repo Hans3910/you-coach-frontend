@@ -1,18 +1,12 @@
-import {User} from './User';
+import {Coachee} from './Coachee';
 
-export class UserClass implements User {
-  email: string;
-  firstName: string;
-  id: string;
-  lastName: string;
-  pictureUrl: string;
+export class UserClass implements Coachee {
+  coacheeId: string;
+  userInfo: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string };
 
 
-  constructor(email: string, firstName: string, id: string, lastName: string, pictureUrl: string) {
-    this.email = email;
-    this.firstName = firstName;
-    this.id = id;
-    this.lastName = lastName;
-    this.pictureUrl = pictureUrl;
+  constructor(id: string, user: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string }) {
+    this.coacheeId = id;
+    this.userInfo = user;
   }
 }

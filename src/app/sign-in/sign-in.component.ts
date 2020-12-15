@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from '../model/User';
+import {Coachee} from '../model/Coachee';
 import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
 
@@ -19,10 +19,11 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(email: string): void {
-    let loggedInUser: User | undefined;
+    let loggedInUser: Coachee | undefined;
     this.userService.signIn(email).subscribe(user => {
       loggedInUser = user;
-      this.router.navigate([`/user/${loggedInUser?.id}`]);
+      console.log(user);
+      this.router.navigate([`/user/${loggedInUser?.userInfo.userId}`]);
     });
 
   }

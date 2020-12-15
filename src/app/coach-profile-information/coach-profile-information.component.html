@@ -19,19 +19,25 @@
         <mat-card-title>Profile Information</mat-card-title>
       </div>
       <div class="img-and-form-container">
-      <img mat-card-avatar [src]="user.pictureUrl">
+        <ng-container *ngIf="coach.userInfo.pictureUrl === '';then defaultProfile else profileIsPresent"></ng-container>
+        <ng-template #defaultProfile>
+          <img mat-card-avatar [src]="defaultPicture">
+        </ng-template>
+        <ng-template #profileIsPresent>
+          <img mat-card-avatar [src]="coach.userInfo.pictureUrl">
+        </ng-template>
       <form>
         <mat-form-field appearance="standard">
           <mat-label>First name</mat-label>
-          <input type="text" name="firstName" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="firstName" [(ngModel)]="coach.userInfo.firstName" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Last name</mat-label>
-          <input type="text" name="lastName" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="lastName" [(ngModel)]="coach.userInfo.lastName" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>E-mail</mat-label>
-          <input type="text" name="email" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="email" [(ngModel)]="coach.userInfo.email" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Class</mat-label>
@@ -39,7 +45,7 @@
         </mat-form-field>
         <mat-form-field appearance="standard" *ngIf="!editable">
           <mat-label>PictureUrl</mat-label>
-          <input type="text" name="picture" [(ngModel)]="user.pictureUrl" matInput [disabled]="disableSelect.value">
+          <input type="text" name="picture" [(ngModel)]="coach.userInfo.pictureUrl" matInput [disabled]="disableSelect.value">
         </mat-form-field>
       </form>
       </div>
@@ -55,15 +61,15 @@
       <form>
         <mat-form-field appearance="standard">
           <mat-label>Coach XP</mat-label>
-          <input type="text" name="coachxp" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="coachxp" [(ngModel)]="user.userInfo.firstName" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Introduction</mat-label>
-          <input type="text" name="introduction" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
+          <input type="text" name="introduction" [(ngModel)]="user.userInfo.lastName" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Availability</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
         </mat-form-field>
       </form>
     </mat-card>
@@ -78,7 +84,7 @@
       <form>
         <mat-form-field appearance="standard">
           <mat-label>Mathematics</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
           <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>
@@ -91,7 +97,7 @@
         </mat-button-toggle-group>
         <mat-form-field appearance="standard">
           <mat-label>Biology</mat-label>
-          <input type="text" name="availability" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+          <input type="text" name="availability" [(ngModel)]="user.userInfo.email" matInput [disabled]="disableSelect.value">
         </mat-form-field>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
           <mat-button-toggle value="bold"><mat-icon>filter_1</mat-icon></mat-button-toggle>

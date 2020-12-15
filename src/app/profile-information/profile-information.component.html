@@ -20,26 +20,26 @@
       </button>
     </div>
     <div class="pro-info-body">
-      <ng-container *ngIf="user.pictureUrl === '';then defaultProfile else profileIsPresent"></ng-container>
+      <ng-container *ngIf="coachee.userInfo.pictureUrl === '';then defaultProfile else profileIsPresent"></ng-container>
       <ng-template #defaultProfile>
         <img mat-card-avatar [src]="defaultPicture">
       </ng-template>
       <ng-template #profileIsPresent>
-        <img mat-card-avatar [src]="user.pictureUrl">
+        <img mat-card-avatar [src]="coachee.userInfo.pictureUrl">
       </ng-template>
       <mat-card-content>
         <form>
           <mat-form-field appearance="standard">
             <mat-label>First name</mat-label>
-            <input type="text" name="firstName" [(ngModel)]="user.firstName" matInput [disabled]="disableSelect.value">
+            <input type="text" name="firstName" [(ngModel)]="coachee.userInfo.firstName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>Last name</mat-label>
-            <input type="text" name="lastName" [(ngModel)]="user.lastName" matInput [disabled]="disableSelect.value">
+            <input type="text" name="lastName" [(ngModel)]="coachee.userInfo.lastName" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>E-mail</mat-label>
-            <input type="text" name="email" [(ngModel)]="user.email" matInput [disabled]="disableSelect.value">
+            <input type="text" name="email" [(ngModel)]="coachee.userInfo.email" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>Class</mat-label>
@@ -47,7 +47,7 @@
           </mat-form-field>
           <mat-form-field appearance="standard" *ngIf="!editable">
             <mat-label>PictureUrl</mat-label>
-            <input type="text" name="picture" [(ngModel)]="user.pictureUrl" matInput [disabled]="disableSelect.value">
+            <input type="text" name="picture" [(ngModel)]="coachee.userInfo.pictureUrl" matInput [disabled]="disableSelect.value">
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>You-Coach Role</mat-label>

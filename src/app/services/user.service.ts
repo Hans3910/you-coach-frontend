@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CreateUser} from '../model/create-user';
 import {Observable} from 'rxjs';
-import {User} from '../model/User';
+import {Coachee} from '../model/Coachee';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +14,19 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  public registerUser(user: CreateUser): Observable<User> {
-    return this.http.post<User>(this.url, user);
+  public registerUser(user: CreateUser): Observable<Coachee> {
+    return this.http.post<Coachee>(this.url, user);
   }
 
-  public signIn(email: string): Observable<User> {
-    return this.http.get<User>(`${this.url}/signIn?email=${email}`);
+  public signIn(email: string): Observable<Coachee> {
+    return this.http.get<Coachee>(`${this.url}/signIn?email=${email}`);
   }
 
-  public getUser(id: string): Observable<User> {
-    return this.http.get<User>(`${this.url}/${id}`);
+  public getUser(id: string): Observable<Coachee> {
+    return this.http.get<Coachee>(`${this.url}/${id}`);
   }
 
-  public editUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.url}/${user.id}`, user);
+  public editUser(user: Coachee): Observable<Coachee> {
+    return this.http.post<Coachee>(`${this.url}/${user.coacheeId}`, user);
   }
 }

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {User} from '../model/User';
+import {Coachee} from '../model/Coachee';
 import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserClass} from '../model/UserClass';
@@ -14,7 +14,7 @@ export class ProfileInformationComponent implements OnInit {
 
   editable = true;
   disableSelect = new FormControl(true);
-  user = new UserClass('', '', '', '', '');
+  coachee = new UserClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
 
@@ -35,8 +35,8 @@ export class ProfileInformationComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     // @ts-ignore
     this.userService.getUser(id).subscribe(user => {
-      this.user = user;
-      console.log(this.user);
+      this.coachee = user;
+      console.log(this.coachee);
     });
   }
 
@@ -46,8 +46,8 @@ export class ProfileInformationComponent implements OnInit {
   }
 
   public editUser(): void {
-    this.userService.editUser(this.user).subscribe(user => {
-      this.user = user;
+    this.userService.editUser(this.coachee).subscribe(user => {
+      this.coachee = user;
       this.edit();
     });
   }
