@@ -22,7 +22,6 @@ import {FormsModule} from '@angular/forms';
 import {BecomeACoachComponent} from './become-a-coach/become-a-coach.component';
 import {RequestSessionComponent} from './request-session/request-session.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { BecomeACoachComponent } from './become-a-coach/become-a-coach.component';
 import { CoachProfileInformationComponent } from './coach-profile-information/coach-profile-information.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
