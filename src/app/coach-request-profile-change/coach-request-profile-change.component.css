@@ -1,5 +1,5 @@
 .hnavigation {
-  background-color: #FBC02D;
+  background-color: #80CBC4;
   min-height: 40px;
   border-bottom: lightgray solid;
 }
@@ -24,7 +24,7 @@ a {
 }
 
 
-.left-coachee-menu {
+.left-coach-menu {
   margin: 0 35px 15px 15px;
   display: flex;
   flex-direction: column;
@@ -46,6 +46,7 @@ mat-card-content {
 
 mat-card-content > p {
   margin: 40px 0px;
+  text-align: justify;
 }
 
 mat-form-field {
@@ -53,7 +54,7 @@ mat-form-field {
 }
 
 .link-here {
-  background-color: #FBC02D;
+  background-color: #80CBC4;
 }
 
 .profile-container {
@@ -62,10 +63,9 @@ mat-form-field {
   margin-bottom: 100px;
 }
 
-.left-coachee-menu > a {
+.left-coach-menu > a {
   border: solid 1px;
-  border-color: lightgray;
-  min-width: 102px;
+  border-color: lightgray
 }
 
 /* unvisited link */
@@ -123,7 +123,7 @@ mat-card {
 }
 
 .edit-btn {
-  background-color: #EBB52D;
+  background-color: #80CBC4;
   margin: 5px;
 }
 
@@ -131,7 +131,7 @@ mat-card {
   width: 15%;
   margin: 5px;
   float: right !important;
-  background: #FBC02D;
+  background-color: #80CBC4;
   min-width: 150px;
 
 }
@@ -141,7 +141,6 @@ mat-card {
 }
 
 .buttons > a {
-  background: #FBC02D;
+  background-color: #80CBC4;
 }
-
 
