@@ -5,13 +5,14 @@
 }
 
 .hlinkcontainer {
-  margin-left: 120px;
+  margin-left: 80px;
   display: flex;
   justify-content: space-between;
   width: 20%;
-
 }
-
+.hlinkcontainer > a{
+  min-width: 150px;
+}
 h3 {
   margin-bottom: 0;
   font-size: large;
@@ -28,6 +29,8 @@ a {
   display: flex;
   flex-direction: column;
   width: 13%;
+  min-width: 102px;
+  position: relative;
 
 }
 
@@ -61,7 +64,8 @@ mat-form-field {
 
 .left-coachee-menu > a {
   border: solid 1px;
-  border-color: lightgray
+  border-color: lightgray;
+  min-width: 102px;
 }
 
 /* unvisited link */
@@ -100,6 +104,7 @@ mat-card {
 
   width: 60%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  min-width: 236px;
 }
 
 .prof-info-header {
@@ -127,6 +132,7 @@ mat-card {
   margin: 5px;
   float: right !important;
   background: #FBC02D;
+  min-width: 150px;
 
 }
 
