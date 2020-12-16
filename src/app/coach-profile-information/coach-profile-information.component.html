@@ -87,7 +87,7 @@
       </div>
       <form #coachTopicsForm="ngForm" (ngSubmit)="editCoach()">
         <mat-form-field appearance="standard">
-          <input type="text" name="availability" [(ngModel)]="coach.topicOne.name" matInput [disabled]="disableTopics.value">
+          <input type="text" name="topic1" [(ngModel)]="coach.topicOne.name" matInput [disabled]="disableTopics.value">
         </mat-form-field>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true" [disabled]="disableTopics.value">
           <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicOneFirstGrade()" ><mat-icon class="grade-icon">filter_1</mat-icon></mat-button-toggle>
@@ -99,7 +99,7 @@
           <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? '#80CBC4': 'white'}" (click)="disableTopics.value === false && topicOneSeventhGrade()"><mat-icon class="grade-icon">filter_7</mat-icon></mat-button-toggle>
         </mat-button-toggle-group>
         <mat-form-field appearance="standard">
-          <input type="text" name="availability" [(ngModel)]="coach.topicTwo.name" matInput [disabled]="disableTopics.value">
+          <input type="text" name="topic2" [(ngModel)]="coach.topicTwo.name" matInput [disabled]="disableTopics.value">
         </mat-form-field>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true" [disabled]="disableTopics.value">
           <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.firstGrade ? '#80CBC4': 'white'}"  (click)="disableTopics.value === false && topicTwoFirstGrade()" ><mat-icon class="grade-icon">filter_1</mat-icon></mat-button-toggle>

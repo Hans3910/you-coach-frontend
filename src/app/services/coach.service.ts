@@ -16,4 +16,8 @@ export class CoachService {
   public getCoachById(coachId: string): Observable<Coach> {
     return this.http.get<Coach>(`${this.url}/${coachId}`);
   }
+
+  public updateCoach(coach: Coach): Observable<Coach> {
+    return this.http.post<Coach>(`${this.url}/${coach.coachId}`, coach);
+  }
 }

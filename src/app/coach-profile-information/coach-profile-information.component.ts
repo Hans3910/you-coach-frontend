@@ -57,6 +57,15 @@ export class CoachProfileInformationComponent implements OnInit {
 
   editCoach(): void {
     console.log(this.coach);
+    this.coachService.updateCoach(this.coach).subscribe(coach => {
+      this.coach = coach;
+    });
+    if (!this.disableProfile.value) {
+      this.disableProfile.setValue(true);
+    }
+    if (!this.disableTopics.value) {
+      this.disableTopics.setValue(true);
+    }
   }
 
   cancel(): void {
@@ -126,7 +135,6 @@ export class CoachProfileInformationComponent implements OnInit {
   topicTwoSeventhGrade(): void {
     this.coach.topicTwo.seventhGrade = !this.coach.topicTwo.seventhGrade;
   }
-
 
 
 }

@@ -23,7 +23,7 @@ export class RequestSessionComponent implements OnInit {
 
   newRequestSession(): void {
     console.log(this.requestSession);
-    this.sessionService.createSession(this.requestSession).subscribe();
+    this.sessionService.createSession(this.requestSession);
   }
 
   // myFilter = (d: Date | null): boolean => {
