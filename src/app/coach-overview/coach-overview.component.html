@@ -1,0 +1,44 @@
+<nav class="hnavigation">
+  <div class="hlinkcontainer">
+    <a>MY PROFILE</a>
+    <a>FIND A COACH</a>
+  </div>
+</nav>
+<mat-card class="container-card">
+  <div class="filter-container">
+    <mat-form-field appearance="standard">
+      <mat-label>Topics</mat-label>
+      <mat-select matNativeControl required>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Years</mat-label>
+      <mat-select matNativeControl required>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </mat-select>
+    </mat-form-field>
+    <mat-icon>search</mat-icon>
+    <mat-form-field class="search-field">
+      <input matInput placeholder="First name, last name or email">
+    </mat-form-field>
+  </div>
+  <ul>
+    <li *ngFor="let coach of coaches">
+      <h2>{{coach.userInfo.firstName}} {{coach.userInfo.lastName}}</h2>
+      <mat-card>
+        <img src="{{coach.userInfo.pictureUrl}}">
+        {{coach.topicOne.name}}
+        {{coach.topicTwo.name}}
+      </mat-card>
+    </li>
+
+  </ul>
+
+</mat-card>
