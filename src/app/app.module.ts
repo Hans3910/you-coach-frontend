@@ -24,6 +24,7 @@ import {RequestSessionComponent} from './request-session/request-session.compone
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CoachProfileInformationComponent } from './coach-profile-information/coach-profile-information.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { CoachRequestProfileChangeComponent } from './coach-request-profile-change/coach-request-profile-change.component';
 
 
 
@@ -39,7 +40,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ProfileInformationComponent,
     BecomeACoachComponent,
     RequestSessionComponent,
-    CoachProfileInformationComponent
+    CoachProfileInformationComponent,
+    CoachRequestProfileChangeComponent
   ],
   imports: [
     BrowserModule,
