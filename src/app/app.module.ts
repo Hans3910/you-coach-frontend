@@ -25,6 +25,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CoachProfileInformationComponent } from './coach-profile-information/coach-profile-information.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CoachRequestProfileChangeComponent } from './coach-request-profile-change/coach-request-profile-change.component';
+import { CoachOverviewComponent } from './coach-overview/coach-overview.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -41,7 +43,8 @@ import { CoachRequestProfileChangeComponent } from './coach-request-profile-chan
     BecomeACoachComponent,
     RequestSessionComponent,
     CoachProfileInformationComponent,
-    CoachRequestProfileChangeComponent
+    CoachRequestProfileChangeComponent,
+    CoachOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { CoachRequestProfileChangeComponent } from './coach-request-profile-chan
     MatOptionModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],

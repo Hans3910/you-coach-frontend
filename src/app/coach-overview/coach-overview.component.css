@@ -1,0 +1,58 @@
+.hnavigation {
+  background-color: #FBC02D;
+  min-height: 40px;
+  border-bottom: lightgray solid;
+}
+
+.hlinkcontainer {
+  margin-left: 120px;
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+a {
+  font-size: medium;
+  padding: 8px;
+}
+
+.filter-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field{
+  margin: 10px 20px 10px 10px;
+  width: 20%;
+}
+
+.search-field{
+  margin: 10px 20px 10px 10px;
+  width: 40%;
+}
+
+img{
+  height: 100px;
+  width: 100px;
+}
+
+mat-card{
+  display: flex;
+}
+
+.container-card{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+li{
+  width: 25%;
+  height: 150px;
+  margin: 10px;
+}
+
+ul{
+  display: flex;
+  list-style-type: none;
+}
