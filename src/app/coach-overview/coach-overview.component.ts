@@ -14,7 +14,7 @@ export class CoachOverviewComponent implements OnInit {
   coaches: Coach[] = [];
   topicNames: TopicName[] = [];
   selectedTopic = '';
-  selectedGrade: Grades;
+  selectedGrade: Grades | undefined;
 
   // Would an empty string work? Let's try later
 
