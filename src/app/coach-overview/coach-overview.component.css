@@ -47,7 +47,7 @@ mat-card {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  align-self: center;
   margin: 0 100px;
 
 
@@ -58,7 +58,7 @@ mat-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 5px;
+  margin: 20px;
   background-color: #f7f8fa;
   max-width: 380px;
 }
@@ -80,6 +80,10 @@ ul {
 mat-button-toggle-group {
   flex-wrap: wrap;
   width: 342px;
+}
+.send-button{
+  background-color: #FBC02D;
+  align-self: flex-end;
 }
 
 
