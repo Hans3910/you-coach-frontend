@@ -14,7 +14,7 @@
     </mat-form-field>
     <mat-form-field appearance="standard">
       <mat-label>Filter by grade</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="selectedGrade">
         <mat-option value="selectedGrade.isFirstGrade">1</mat-option>
 <!--        <mat-option *ngFor="let coach of coaches" [value]="coach.topicOne.seventhGrade">{{coach.topicOne.seventhGrade}}</mat-option>-->
 <!--        <mat-option value=1>1</mat-option>-->
