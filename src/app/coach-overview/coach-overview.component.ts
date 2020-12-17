@@ -20,5 +20,4 @@ export class CoachOverviewComponent implements OnInit {
   public getCoaches(): void {
     this.coachService.getAllCoaches().subscribe(coaches => this.coaches = coaches);
   }
-
 }
