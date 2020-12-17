@@ -9,7 +9,7 @@
     <mat-form-field appearance="standard">
       <mat-label>Filter by topic</mat-label>
       <mat-select [(ngModel)]="selectedTopic">
-        <mat-option *ngFor="let topicName of topicNames" [value]="topicName.name">{{topicName.name}}</mat-option>
+        <mat-option *ngFor="let topicName of topicNames " [value]="topicName.name">{{topicName.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="standard">
@@ -28,14 +28,12 @@
     </mat-form-field>
     <mat-icon>search</mat-icon>
     <mat-form-field class="search-field">
-      <input matInput placeholder="First name, last name or email">
+      <input [(ngModel)]="searchText" aria-describedby="search-text" matInput placeholder="First name, last name or email">
     </mat-form-field>
   </div>
-  <!--  <ul>-->
-  <!--    <li *ngFor="let coach of coaches">-->
-  <!--      <h2>{{coach.userInfo.firstName}} {{coach.userInfo.lastName}}</h2>-->
+
   <div class="coach-card-container">
-    <div *ngFor="let coach of coaches">
+    <div *ngFor="let coach of coaches | appFilter: searchText">
       <mat-card class="coach-card" *ngIf="((selectedTopic===''||selectedTopic===coach.topicOne.name||selectedTopic===coach.topicTwo.name))">
       <mat-card-title>{{coach.userInfo.firstName}} {{coach.userInfo.lastName}}</mat-card-title>
       <img src="{{coach.userInfo.pictureUrl}}">

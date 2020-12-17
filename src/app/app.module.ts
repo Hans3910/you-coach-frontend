@@ -27,6 +27,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CoachRequestProfileChangeComponent } from './coach-request-profile-change/coach-request-profile-change.component';
 import { CoachOverviewComponent } from './coach-overview/coach-overview.component';
 import {MatSelectModule} from '@angular/material/select';
+import {Filter} from './Filter';
 
 
 
@@ -44,7 +45,8 @@ import {MatSelectModule} from '@angular/material/select';
     RequestSessionComponent,
     CoachProfileInformationComponent,
     CoachRequestProfileChangeComponent,
-    CoachOverviewComponent
+    CoachOverviewComponent,
+    Filter,
   ],
   imports: [
     BrowserModule,

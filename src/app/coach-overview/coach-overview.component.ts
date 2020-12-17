@@ -15,6 +15,7 @@ export class CoachOverviewComponent implements OnInit {
   topicNames: TopicName[] = [];
   selectedTopic = '';
   selectedGrade: Grades | undefined;
+  searchText = '';
 
   // Would an empty string work? Let's try later
 
