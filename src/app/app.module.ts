@@ -28,6 +28,8 @@ import { CoachRequestProfileChangeComponent } from './coach-request-profile-chan
 import { CoachOverviewComponent } from './coach-overview/coach-overview.component';
 import {MatSelectModule} from '@angular/material/select';
 import {Filter} from './Filter';
+import { CoachDetailComponent } from './coach-detail/coach-detail.component';
+
 
 
 
@@ -47,6 +49,7 @@ import {Filter} from './Filter';
     CoachRequestProfileChangeComponent,
     CoachOverviewComponent,
     Filter,
+    CoachDetailComponent
   ],
   imports: [
     BrowserModule,
