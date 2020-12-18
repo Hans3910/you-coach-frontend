@@ -1,3 +1,5 @@
+import {Topic} from './topic';
+
 export interface Coach {
   coachId: string;
   userInfo: {
@@ -10,27 +12,7 @@ export interface Coach {
   coachXp: number;
   availability: string;
   introduction: string;
-  topicOne: {
-    topicId: string,
-    name: string,
-    fifthGrade: boolean,
-    firstGrade: boolean,
-    fourthGrade: boolean,
-    sixthGrade: boolean,
-    secondGrade: boolean,
-    thirdGrade: boolean,
-    seventhGrade: boolean
-  };
-  topicTwo: {
-    topicId: string,
-    name: string,
-    fifthGrade: boolean,
-    firstGrade: boolean,
-    fourthGrade: boolean,
-    sixthGrade: boolean,
-    secondGrade: boolean,
-    thirdGrade: boolean,
-    seventhGrade: boolean
-  };
+  topicOne: Topic;
+  topicTwo: Topic;
 
 }

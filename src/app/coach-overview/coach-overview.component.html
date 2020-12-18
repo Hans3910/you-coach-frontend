@@ -9,21 +9,21 @@
     <mat-form-field appearance="standard">
       <mat-label>Filter by topic</mat-label>
       <mat-select [(ngModel)]="selectedTopic">
+        <mat-option value="">All topics</mat-option>
         <mat-option *ngFor="let topicName of topicNames " [value]="topicName.name">{{topicName.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="standard">
       <mat-label>Filter by grade</mat-label>
-      <mat-select [(ngModel)]="selectedGrade">
-        <mat-option value="selectedGrade.isFirstGrade">1</mat-option>
-<!--        <mat-option *ngFor="let coach of coaches" [value]="coach.topicOne.seventhGrade">{{coach.topicOne.seventhGrade}}</mat-option>-->
-<!--        <mat-option value=1>1</mat-option>-->
-<!--        <mat-option value="2">2</mat-option>-->
-<!--        <mat-option value="3">3</mat-option>-->
-<!--        <mat-option value="4">4</mat-option>-->
-<!--        <mat-option value="5">5</mat-option>-->
-<!--        <mat-option value="6">6</mat-option>-->
-<!--        <mat-option value=true>7</mat-option>-->
+      <mat-select [(ngModel)]="selectedGrade" [value]="0">
+        <mat-option [value]=0>All grades</mat-option>
+        <mat-option [value]=1>1</mat-option>
+        <mat-option [value]=2>2</mat-option>
+        <mat-option [value]=3>3</mat-option>
+        <mat-option [value]=4>4</mat-option>
+        <mat-option [value]=5>5</mat-option>
+        <mat-option [value]=6>6</mat-option>
+        <mat-option [value]=7>7</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-icon>search</mat-icon>
@@ -34,7 +34,10 @@
 
   <div class="coach-card-container">
     <div *ngFor="let coach of coaches | appFilter: searchText">
-      <mat-card class="coach-card" *ngIf="((selectedTopic===''||selectedTopic===coach.topicOne.name||selectedTopic===coach.topicTwo.name))">
+      <mat-card class="coach-card" *ngIf="((selectedTopic==='' &&
+       (isTopicInYear(coach.topicOne, selectedGrade)|| isTopicInYear(coach.topicTwo, selectedGrade)))
+      ||(selectedTopic===coach.topicOne.name && isTopicInYear(coach.topicOne, selectedGrade))
+      ||(selectedTopic===coach.topicTwo.name && isTopicInYear(coach.topicTwo, selectedGrade)))">
       <mat-card-title>{{coach.userInfo.firstName}} {{coach.userInfo.lastName}}</mat-card-title>
       <img src="{{coach.userInfo.pictureUrl}}">
       {{coach.topicOne.name}}
@@ -93,8 +96,4 @@
     </mat-card>
       </div>
   </div>
-  <!--    </li>-->
-
-  <!--  </ul>-->
-
 </mat-card>

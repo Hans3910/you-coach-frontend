@@ -4,6 +4,7 @@ import {CoachService} from '../services/coach.service';
 import {TopicName} from '../model/TopicName';
 import {TopicService} from '../services/topic.service';
 import {Grades} from '../model/Grades';
+import {Topic} from '../model/topic';
 
 @Component({
   selector: 'app-coach-overview',
@@ -14,7 +15,7 @@ export class CoachOverviewComponent implements OnInit {
   coaches: Coach[] = [];
   topicNames: TopicName[] = [];
   selectedTopic = '';
-  selectedGrade: Grades | undefined;
+  selectedGrade = 0;
   searchText = '';
 
   // Would an empty string work? Let's try later
@@ -35,7 +36,25 @@ export class CoachOverviewComponent implements OnInit {
     this.topicService.getAllTopics().subscribe(topicNames => this.topicNames = topicNames);
   }
 
-  // public filterByTopic(): void {
-  //   this.coaches.filter(coach => coach.topicOne === this.topicName);
-  // }
+
+  public isTopicInYear(topic: Topic, year: number): boolean {
+    switch (year) {
+      case 1:
+        return topic.firstGrade;
+      case 2:
+        return topic.secondGrade;
+      case 3:
+        return topic.thirdGrade;
+      case 4:
+        return topic.fourthGrade;
+      case 5:
+        return topic.fifthGrade;
+      case 6:
+        return topic.sixthGrade;
+      case 7:
+        return topic.seventhGrade;
+      default:
+        return true;
+    }
+  }
 }
