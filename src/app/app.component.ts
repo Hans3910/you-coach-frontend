@@ -7,33 +7,33 @@ import {Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges, OnInit {
+export class AppComponent {
   title = 'You-Coach';
   // @ts-ignore
   currentUser: string | null;
-  profileUrl = '';
-  userIsLoggedIn = false;
+  userIsLoggedIn = true;
+  isSignInActive = false;
 
   constructor(private router: Router) {
   }
 
-  ngOnInit(): void {
-    // this.currentUser = localStorage.getItem('currentUser');
-    // this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
-  }
-
-  ngOnChanges(): void {
-    // this.currentUser = localStorage.getItem('currentUser');
-    // this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
-    // console.log('changes are welcome');
-  }
-
   logIn(text: string): void {
-    this.userIsLoggedIn = !this.userIsLoggedIn;
+    this.userIsLoggedIn = true;
+    this.isSignInActive = false;
     console.log(text);
   }
 
   navigateToProfile(): void {
     this.router.navigate([`/user/${localStorage.getItem('currentUser')}`]);
+  }
+
+  signIn(): void {
+    this.isSignInActive = !this.isSignInActive;
+  }
+
+  logOut(): void {
+    this.userIsLoggedIn = false;
+    localStorage.clear();
+    this.router.navigate(['/home']);
   }
 }

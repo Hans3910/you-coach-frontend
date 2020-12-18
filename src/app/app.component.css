@@ -4,6 +4,15 @@
   margin-left: 100px;
 }
 
+.user-nav{
+  background-color: #FBC02D;
+  padding-left: 100px;
+}
+
+.user-nav > button {
+  font-size: 18px;
+}
+
 header{
   background-color: #f7f8fa;
   border-bottom: lightgray solid;

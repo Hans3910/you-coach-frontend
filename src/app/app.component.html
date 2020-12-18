@@ -5,18 +5,23 @@
       <button mat-button routerLink="/home">Home</button>
       <button mat-button routerLink="/aboutUs">About Us</button>
       <a href="mailto:admin1@school.org" mat-button>Contact</a>
-      <button class="sign-btn" mat-raised-button routerLink="/signin">Sign In <mat-icon aria-hidden="false" >person</mat-icon></button>
-      <button class="register-btn" mat-raised-button routerLink="/register">Register <mat-icon aria-hidden="false" >person_add</mat-icon></button>
-      <button class="signout-btn" mat-raised-button routerLink="/register">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
+      <button class="sign-btn" mat-raised-button (click)="signIn()" *ngIf="!userIsLoggedIn">Sign In <mat-icon aria-hidden="false" >person</mat-icon></button>
+      <button class="register-btn" mat-raised-button routerLink="/register" *ngIf="!userIsLoggedIn">Register <mat-icon aria-hidden="false" >person_add</mat-icon></button>
+      <button class="signout-btn" mat-raised-button (click)="logOut()" *ngIf="userIsLoggedIn">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
     </mat-nav-list>
   </mat-toolbar>
-  <mat-toolbar>
-    <button mat-button (click)="navigateToProfile()">Profile</button>
-    <button mat-button routerLink="/coach/overview">Find a coach</button>
+  <mat-toolbar class="user-nav" *ngIf="userIsLoggedIn">
+    <button mat-button (click)="navigateToProfile()">MY PROFILE</button>
+    <button mat-button routerLink="/coach/overview">FIND A COACH</button>
   </mat-toolbar>
 </header>
 <div>
-  <router-outlet></router-outlet>
+  <div *ngIf="isSignInActive">
+    <app-sign-in (loggedIn)="logIn($event)"></app-sign-in>
+  </div>
+  <div *ngIf="!isSignInActive">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <footer>
   <div class="footer-header">

@@ -3,7 +3,7 @@ import {FormControl} from '@angular/forms';
 import {Coachee} from '../model/Coachee';
 import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {UserClass} from '../model/UserClass';
+import {CoacheeClass} from '../model/CoacheeClass';
 
 @Component({
   selector: 'app-profile-information',
@@ -14,7 +14,7 @@ export class ProfileInformationComponent implements OnInit {
 
   editable = true;
   disableSelect = new FormControl(true);
-  coachee = new UserClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
+  coachee = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {UserClass} from '../model/UserClass';
+import {CoacheeClass} from '../model/CoacheeClass';
 import {CoachClass} from '../model/CoachClass';
 import {CoachService} from '../services/coach.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -14,7 +14,7 @@ export class CoachDetailComponent implements OnInit {
   editable = true;
   disableProfile = new FormControl(true);
   disableTopics = new FormControl(true);
-  user = new UserClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
+  user = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
   coach = new CoachClass('', '', 0, '', {
     topicId: '',
     name: '',
@@ -35,7 +35,7 @@ export class CoachDetailComponent implements OnInit {
     seventhGrade: false,
     sixthGrade: false,
     thirdGrade: false
-  }, {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
+  }, {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
 

@@ -1,6 +1,6 @@
 import {Coachee} from './Coachee';
 
-export class UserClass implements Coachee {
+export class CoacheeClass implements Coachee {
   coacheeId: string;
   userInfo: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string };
 
