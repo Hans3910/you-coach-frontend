@@ -5,6 +5,7 @@ import {TopicName} from '../model/TopicName';
 import {TopicService} from '../services/topic.service';
 import {Grades} from '../model/Grades';
 import {Topic} from '../model/topic';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-coach-overview',
@@ -20,7 +21,7 @@ export class CoachOverviewComponent implements OnInit {
 
   // Would an empty string work? Let's try later
 
-  constructor(private coachService: CoachService, private topicService: TopicService) {
+  constructor(private coachService: CoachService, private topicService: TopicService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -56,5 +57,10 @@ export class CoachOverviewComponent implements OnInit {
       default:
         return true;
     }
+  }
+
+  navigateToCoachDetail(id: string): void {
+    console.log(id);
+    this.router.navigate([`/coachoverview/${id}`]);
   }
 }

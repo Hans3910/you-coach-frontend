@@ -24,4 +24,5 @@ export class CoachService {
   public getAllCoaches(): Observable<Coach[]>{
     return this.http.get<Coach[]>(this.url);
   }
+
 }

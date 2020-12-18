@@ -59,7 +59,7 @@ mat-form-field{
 /* unvisited link */
 a:link {
   color: black;
-  background-color: white;
+  /*background-color: white;*/
   text-decoration: none;
   border: solid 1px;
   border-color: lightgray;

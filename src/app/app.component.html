@@ -1,5 +1,5 @@
 <header>
-  <mat-toolbar role="heading" class="row">
+  <mat-toolbar role="heading" class="row head-nav">
     <h1>{{title}}</h1>
     <mat-nav-list class="layout-right"> <!-- TODO-->
       <button mat-button routerLink="/home">Home</button>
@@ -9,6 +9,10 @@
       <button class="register-btn" mat-raised-button routerLink="/register">Register <mat-icon aria-hidden="false" >person_add</mat-icon></button>
       <button class="signout-btn" mat-raised-button routerLink="/register">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
     </mat-nav-list>
+  </mat-toolbar>
+  <mat-toolbar>
+    <button mat-button (click)="navigateToProfile()">Profile</button>
+    <button mat-button routerLink="/coach/overview">Find a coach</button>
   </mat-toolbar>
 </header>
 <div>

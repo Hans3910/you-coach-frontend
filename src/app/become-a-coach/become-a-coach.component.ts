@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./become-a-coach.component.css']
 })
 export class BecomeACoachComponent implements OnInit {
+  profileUrl = `user/test`;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
   }
 
 }

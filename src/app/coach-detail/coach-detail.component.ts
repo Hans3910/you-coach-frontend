@@ -51,12 +51,14 @@ export class CoachDetailComponent implements OnInit {
     // @ts-ignore
     this.coachService.getCoachById(id).subscribe(coach => {
       this.coach = coach;
+      localStorage.setItem('requestSessionCoach', this.coach.coachId);
       console.log(this.coach);
     });
   }
 
 
   requestSession(): void {
-    this.router.navigate(['/requestsession', {state: this.coach.coachId}]);
+    // this.router.navigateByUrl('/requestsession', {state: {coachId: this.coach.coachId}});
+    this.router.navigate(['/requestsession']);
   }
 }
