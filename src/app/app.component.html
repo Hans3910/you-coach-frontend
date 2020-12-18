@@ -10,7 +10,7 @@
       <button class="signout-btn" mat-raised-button (click)="logOut()" *ngIf="userIsLoggedIn">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
     </mat-nav-list>
   </mat-toolbar>
-  <mat-toolbar class="user-nav" *ngIf="userIsLoggedIn">
+  <mat-toolbar class="user-nav" *ngIf="userIsLoggedIn" [style]="{'background': colorLayout}">
     <button mat-button (click)="navigateToProfile()">MY PROFILE</button>
     <button mat-button routerLink="/coach/overview">FIND A COACH</button>
   </mat-toolbar>
@@ -23,14 +23,14 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<footer>
+<footer [style]="{'background': colorLayout}">
   <div class="footer-header">
 <div class="footer-youcoachdesc">
   <h1>{{title}}</h1>
   <p class="mat-body-1 footer-text">You-Coach is an academic program between students in secondary schools, supervised by the schools started by the
     <a href="http://www.make-it-happen.org" target="_blank">Make-It-Happen Foundation</a> </p>
 </div>
-  <div class="footer-navigation">
+  <div class="footer-navigation" [style]="{'background': colorLayout}">
     <h1>Navigation</h1>
     <ul class="footer-navigation-list">
       <li>
@@ -52,7 +52,7 @@
     </ul>
   </div>
   </div>
-  <div class="inline-footer">
+  <div class="inline-footer" [style]="{'background': colorLayoutSwitchFully}">
     <div class="inline-footer-item">
     <p class="mat-body-1">Web application proudly created by <a href="http://www.switchfully.com" target="_blank">Switchfully</a> students.</p>
     </div>

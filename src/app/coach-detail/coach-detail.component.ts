@@ -14,7 +14,7 @@ export class CoachDetailComponent implements OnInit {
   editable = true;
   disableProfile = new FormControl(true);
   disableTopics = new FormControl(true);
-  user = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: ''});
+  user = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coachId: '', coacheeId: ''});
   coach = new CoachClass('', '', 0, '', {
     topicId: '',
     name: '',

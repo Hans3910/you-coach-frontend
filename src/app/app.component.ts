@@ -11,8 +11,10 @@ export class AppComponent {
   title = 'You-Coach';
   // @ts-ignore
   currentUser: string | null;
-  userIsLoggedIn = true;
+  userIsLoggedIn = false;
   isSignInActive = false;
+  colorLayout = '#FBC02D';
+  colorLayoutSwitchFully = '#EBB52D';
 
   constructor(private router: Router) {
   }
@@ -20,6 +22,7 @@ export class AppComponent {
   logIn(text: string): void {
     this.userIsLoggedIn = true;
     this.isSignInActive = false;
+    this.setColor();
     console.log(text);
   }
 
@@ -35,5 +38,14 @@ export class AppComponent {
     this.userIsLoggedIn = false;
     localStorage.clear();
     this.router.navigate(['/home']);
+  }
+
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+      this.colorLayoutSwitchFully = '#7ABFB9';
+    }
   }
 }

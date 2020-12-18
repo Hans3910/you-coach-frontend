@@ -26,6 +26,7 @@ export class SignInComponent implements OnInit {
       console.log(user);
       localStorage.setItem('currentUser', loggedInUser.userInfo.userId);
       localStorage.setItem('coacheeId', loggedInUser.coacheeId);
+      localStorage.setItem('coachId', loggedInUser.userInfo.coachId);
       this.loggedIn.emit('output works');
       this.router.navigate([`/user/${loggedInUser?.userInfo.userId}`]);
     });
