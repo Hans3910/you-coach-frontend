@@ -19,6 +19,7 @@ export class ProfileInformationComponent implements OnInit {
   defaultPicture = 'assets/defaultProfile.svg';
 
 
+
   constructor(private userService: UserService, private route: ActivatedRoute) {
   }
 
