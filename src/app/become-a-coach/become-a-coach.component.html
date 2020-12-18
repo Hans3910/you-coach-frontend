@@ -3,9 +3,10 @@
 <div class="profile-container">
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
-    <a [routerLink]="profileUrl">Profile information</a>
-    <a routerLink="/coaching-sessions">Coaching sessions</a>
-    <a class="link-here" routerLink="/becomeacoach">Become a coach</a>
+    <button mat-button [routerLink]="profileUrl">Profile information</button>
+    <button mat-button routerLink="/coaching-sessions">Coaching sessions</button>
+    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach">Become a coach</button>
+
   </nav>
   <mat-card>
     <div class="prof-info-header">

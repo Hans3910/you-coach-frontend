@@ -1,14 +1,14 @@
 <div class="profile-container">
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
-    <a class="link-here" routerLink="/users/:id">Profile information</a>
-    <a routerLink="/coaching-sessions">Coaching sessions</a>
-    <a routerLink="/becomeacoach">Become a coach</a>
+    <button mat-button [style]="{'background': colorLayout}"> Profile information</button>
+    <button mat-button routerLink="/coaching-sessions">Coaching sessions</button>
+    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach">Become a coach</button>
   </nav>
   <mat-card>
     <div class="prof-info-header">
       <mat-card-title>Profile Information</mat-card-title>
-      <button mat-mini-fab class="edit-btn" (click)="edit()">
+      <button mat-mini-fab class="edit-btn" (click)="edit()" [style]="{'background': colorLayout}">
         <mat-icon>create</mat-icon>
       </button>
     </div>

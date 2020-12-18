@@ -17,6 +17,8 @@ export class ProfileInformationComponent implements OnInit {
   coachee = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
+  isCoach = false;
+  colorLayout = '#FBC02D';
 
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
@@ -24,6 +26,8 @@ export class ProfileInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserById();
+    this.setColor();
+    this.checkRole();
   }
 
   edit(): void {
@@ -50,5 +54,18 @@ export class ProfileInformationComponent implements OnInit {
       this.coachee = user;
       this.edit();
     });
+  }
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    }
+  }
+
+  private checkRole(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      this.isCoach = true;
+    }
   }
 }

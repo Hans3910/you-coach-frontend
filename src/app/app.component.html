@@ -13,6 +13,7 @@
   <mat-toolbar class="user-nav" *ngIf="userIsLoggedIn" [style]="{'background': colorLayout}">
     <button mat-button (click)="navigateToProfile()">MY PROFILE</button>
     <button mat-button routerLink="/coach/overview">FIND A COACH</button>
+    <button mat-button (click)="navigateToCoachProfile()" *ngIf="isCoach">COACH PROFILE</button>
   </mat-toolbar>
 </header>
 <div>
