@@ -137,3 +137,8 @@ mat-card {
   /*margin-left: 300px;*/
   margin-right: 500px;
 }
+
+.side-nav-btn{
+  width: 175px;
+  text-align: left;
+}

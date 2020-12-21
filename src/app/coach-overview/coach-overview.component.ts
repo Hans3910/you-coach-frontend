@@ -18,6 +18,7 @@ export class CoachOverviewComponent implements OnInit {
   selectedTopic = '';
   selectedGrade = 0;
   searchText = '';
+  colorLayout = '#FBC02D';
 
   // Would an empty string work? Let's try later
 
@@ -27,6 +28,7 @@ export class CoachOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.getCoaches();
     this.getTopicNames();
+    this.setColor();
   }
 
   public getCoaches(): void {
@@ -62,5 +64,12 @@ export class CoachOverviewComponent implements OnInit {
   navigateToCoachDetail(id: string): void {
     console.log(id);
     this.router.navigate([`/coachoverview/${id}`]);
+  }
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    }
   }
 }
