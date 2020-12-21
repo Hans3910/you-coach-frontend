@@ -4,6 +4,8 @@ import {SessionService} from '../services/session.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -19,6 +21,7 @@ export class RequestSessionComponent implements OnInit {
   allowedDate = new Date().toISOString().split('T')[0];
 
 
+
   constructor(private sessionService: SessionService, private route: Router) {
   }
 
@@ -29,9 +32,15 @@ export class RequestSessionComponent implements OnInit {
   }
 
   newRequestSession(): void {
-    localStorage.removeItem('requestSessionCoach');
-    this.sessionService.createSession(this.requestSession).subscribe();
-    this.route.navigate([`/user/${localStorage.getItem('currentUser')}`]);
+    if (Date.parse(this.requestSession.requestedDate) >= Date.now()) {
+      localStorage.removeItem('requestSessionCoach');
+      this.sessionService.createSession(this.requestSession).subscribe();
+      this.route.navigate([`/user/${localStorage.getItem('currentUser')}`]);
+    } else {
+
+      alert(`Provide a date after or equal ${this.allowedDate}`);
+
+    }
   }
 
   private setColor(): void {
@@ -40,6 +49,7 @@ export class RequestSessionComponent implements OnInit {
       this.colorLayout = '#80CBC4';
     }
   }
+
 
 
 }

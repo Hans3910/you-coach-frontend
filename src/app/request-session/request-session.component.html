@@ -6,17 +6,20 @@
         <mat-label>On which topic/subject would you like to have a coaching session? </mat-label>
         <input type="text" #subject=ngModel required="true" [class.is-invalid]="subject.invalid&&subject.touched"
                name="subject" [(ngModel)]="requestSession.subject" matInput>
+        <mat-error *ngIf="subject.invalid">A subject is required</mat-error>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Date</mat-label>
         <input matInput type="date" id="date" name="date" class="form-control" required [min]="allowedDate"
                pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="requestSession.requestedDate" #date="ngModel"
                [class.is-invalid]="date.invalid&&date.touched">
+        <mat-error *ngIf="date.invalid">Please provide a date in the future</mat-error>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Time</mat-label>
         <input matInput type="time" id="time" name="requestedTime" class="form-control" required
                [(ngModel)]="requestSession.requestedTime" #requestedTime="ngModel">
+        <mat-error *ngIf="requestedTime.invalid">Please provide a moment in the future</mat-error>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Location</mat-label>

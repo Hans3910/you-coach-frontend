@@ -29,6 +29,7 @@ import { CoachOverviewComponent } from './coach-overview/coach-overview.componen
 import {MatSelectModule} from '@angular/material/select';
 import {Filter} from './Filter';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -69,7 +70,8 @@ import { CoachDetailComponent } from './coach-detail/coach-detail.component';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],
