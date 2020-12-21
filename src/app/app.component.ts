@@ -13,6 +13,7 @@ export class AppComponent {
   currentUser: string | null;
   userIsLoggedIn = false;
   isSignInActive = false;
+  isRegisterActive = false;
   colorLayout = '#FBC02D';
   colorLayoutSwitchFully = '#EBB52D';
   isCoach = false;
@@ -33,6 +34,17 @@ export class AppComponent {
 
   signIn(): void {
     this.isSignInActive = !this.isSignInActive;
+    this.isRegisterActive = false;
+  }
+
+  register(): void {
+    this.isRegisterActive = !this.isRegisterActive;
+    this.isSignInActive = false;
+  }
+
+  navigateToHome(): void {
+    this.isSignInActive = false;
+    this.isRegisterActive = false;
   }
 
   logOut(): void {
