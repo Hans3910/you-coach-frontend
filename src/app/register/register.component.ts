@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CreateUser} from '../model/create-user';
 import {FormControl, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../Exceptions/error-state-matcher';
@@ -14,6 +14,8 @@ import {Coachee} from '../model/Coachee';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  @Output() loggedIn = new EventEmitter<string>();
 
   constructor(private userService: UserService,
               private router: Router) {
@@ -39,6 +41,10 @@ export class RegisterComponent implements OnInit {
     this.userService.registerUser(this.newUser).subscribe(user => {
       loggedInUser = user;
       console.log(loggedInUser);
+      localStorage.setItem('currentUser', loggedInUser.userInfo.userId);
+      localStorage.setItem('coacheeId', loggedInUser.coacheeId);
+      localStorage.setItem('coachId', loggedInUser.userInfo.coachId);
+      this.loggedIn.emit('output works');
       this.router.navigate([`/user/${loggedInUser.userInfo.userId}`]);
     });
 }

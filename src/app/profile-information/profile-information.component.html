@@ -44,7 +44,7 @@
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>You-Coach Role</mat-label>
-            <select matNativeControl name="role" [disabled]="disableSelect.value">
+            <select matNativeControl name="role" [disabled]="disableSelect.value" [(ngModel)]="coachee.userInfo.role">
               <option value="" selected></option>
               <option value="coachee">Coachee</option>
               <option value="coach">Coach</option>

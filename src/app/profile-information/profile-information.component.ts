@@ -14,7 +14,16 @@ export class ProfileInformationComponent implements OnInit {
 
   editable = true;
   disableSelect = new FormControl(true);
-  coachee = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: ''});
+  coachee = new CoacheeClass('', {
+    userId: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    pictureUrl: '',
+    coacheeId: '',
+    coachId: '',
+    role: ''
+  });
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
   isCoach = false;
@@ -50,6 +59,7 @@ export class ProfileInformationComponent implements OnInit {
   }
 
   public editUser(): void {
+    console.log(this.coachee);
     this.userService.editUser(this.coachee).subscribe(user => {
       this.coachee = user;
       this.edit();

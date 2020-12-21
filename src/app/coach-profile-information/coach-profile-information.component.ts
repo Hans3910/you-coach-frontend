@@ -14,7 +14,6 @@ export class CoachProfileInformationComponent implements OnInit {
   editable = true;
   disableProfile = new FormControl(true);
   disableTopics = new FormControl(true);
-  user = new CoacheeClass('', {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coachId: '', coacheeId: ''});
   coach = new CoachClass('', '', 0, '', {
     topicId: '',
     name: '',
@@ -35,7 +34,7 @@ export class CoachProfileInformationComponent implements OnInit {
     seventhGrade: false,
     sixthGrade: false,
     thirdGrade: false
-  }, {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: ''});
+  }, {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: '', role: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
 

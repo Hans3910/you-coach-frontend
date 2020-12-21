@@ -6,4 +6,5 @@ export interface User {
   pictureUrl: string;
   coacheeId: string;
   coachId: string;
+  role: string;
 }

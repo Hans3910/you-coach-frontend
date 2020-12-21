@@ -21,7 +21,7 @@
     <app-sign-in (loggedIn)="logIn($event)"></app-sign-in>
   </div>
   <div *ngIf="isRegisterActive">
-    <app-register></app-register>
+    <app-register (loggedIn)="logIn($event)"></app-register>
   </div>
   <div *ngIf="!isSignInActive && !isRegisterActive">
     <router-outlet></router-outlet>

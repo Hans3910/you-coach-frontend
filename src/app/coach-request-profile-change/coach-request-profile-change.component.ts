@@ -10,7 +10,7 @@ export class CoachRequestProfileChangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
+    this.profileUrl = `/coach/${localStorage.getItem('coachId')}`;
   }
 
 }

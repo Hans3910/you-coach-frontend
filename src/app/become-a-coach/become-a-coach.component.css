@@ -149,4 +149,8 @@ mat-card {
   text-align: left;
 }
 
+.side-nav-btn-active {
+  background-color: #FBC02D;
+}
+
 
