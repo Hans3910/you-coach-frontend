@@ -1,9 +1,9 @@
 <div class="profile-container">
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
-    <button mat-button [style]="{'background': colorLayout}"> Profile information</button>
-    <button mat-button routerLink="/coaching-sessions">Coaching sessions</button>
-    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach">Become a coach</button>
+    <button mat-button [style]="{'background': colorLayout}" class="side-nav-btn"> Profile information</button>
+    <button mat-button routerLink="/coaching-sessions" class="side-nav-btn">Coaching sessions</button>
+    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach" class="side-nav-btn">Become a coach</button>
   </nav>
   <mat-card>
     <div class="prof-info-header">

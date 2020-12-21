@@ -26,7 +26,7 @@
         <mat-label>Remarks for the coach?</mat-label>
         <input type="text" name="remarks" [(ngModel)]="requestSession.remarks" matInput>
       </mat-form-field>
-      <button mat-raised-button [disabled]="sessionForm.invalid" type="submit">REQUEST A SESSION
+      <button mat-raised-button [disabled]="sessionForm.invalid" type="submit" [style]="{'background': colorLayout}">REQUEST A SESSION
         <mat-icon aria-hidden="false">send</mat-icon>
       </button>
 

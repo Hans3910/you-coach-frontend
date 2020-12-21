@@ -40,14 +40,6 @@ a {
   border-color: lightgray
 }
 
-/* unvisited link */
-a:link {
-  color: black;
-  background-color: white;
-  text-decoration: none;
-  border: solid 1px;
-  border-color: lightgray;
-}
 
 /* visited link */
 a:visited {
@@ -110,34 +102,28 @@ img {
   flex-direction: row;
 }
 
-.line{
+.line {
   width: 100%;
   border-bottom: 1px solid lightgrey;
   margin: 20px 0;
 }
 
-.p-container{
+.p-container {
   display: flex;
   flex-direction: column;
 }
 
-.edit-btn{
+.edit-btn {
   background-color: #80CBC4;
   margin: 5px;
 }
-/*:host .mat-button-toggle{*/
-/*  border-radius: 20px !important;*/
-/*}*/
 
-/*.mat-button-toggle-checked {*/
-/*  background-color: #80CBC4 ;*/
-/*}*/
 
-.grade-icon{
+.grade-icon {
   color: #000000DE;
 }
 
-.save-btn{
+.save-btn {
   background-color: #FBC02D;
   width: 15%;
   margin: 5px;
@@ -145,14 +131,25 @@ img {
   min-width: 100px;
 }
 
-.cancel-btn{
+.cancel-btn {
   background-color: #80CBC4;
   width: 15%;
   margin: 5px;
   float: right !important;
   min-width: 100px;
 }
-.buttons{
+
+.side-nav-btn,
+.side-nav-btn-active {
+  width: 175px;
+  text-align: left;
+}
+
+.side-nav-btn-active {
+  background-color: #80CBC4;
+}
+
+.buttons {
   width: 100%;
   float: right;
   /*margin-left: 300px;*/

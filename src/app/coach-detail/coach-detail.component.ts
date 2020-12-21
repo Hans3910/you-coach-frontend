@@ -38,12 +38,14 @@ export class CoachDetailComponent implements OnInit {
   }, {userId: '', firstName: '', lastName: '', email: '', pictureUrl: '', coacheeId: '', coachId: ''});
   defaultString = 'emptyField';
   defaultPicture = 'assets/defaultProfile.svg';
+  colorLayout = '#FBC02D';
 
   constructor(private router: Router, private coachService: CoachService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.getCoach();
+    this.setColor();
   }
 
   public getCoach(): void {
@@ -60,5 +62,12 @@ export class CoachDetailComponent implements OnInit {
   requestSession(): void {
     // this.router.navigateByUrl('/requestsession', {state: {coachId: this.coach.coachId}});
     this.router.navigate(['/requestsession']);
+  }
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    }
   }
 }

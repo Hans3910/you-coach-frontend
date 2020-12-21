@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./request-session.component.css']
 })
 export class RequestSessionComponent implements OnInit {
-
+  colorLayout = '#FBC02D';
   title = 'Request a session';
   // @ts-ignore
   requestSession = new RequestSession('', '', '', '', '', '', '');
@@ -25,12 +25,20 @@ export class RequestSessionComponent implements OnInit {
   ngOnInit(): void {
     this.requestSession.coachId = localStorage.getItem('requestSessionCoach');
     this.requestSession.coacheeId = localStorage.getItem('coacheeId');
+    this.setColor();
   }
 
   newRequestSession(): void {
     localStorage.removeItem('requestSessionCoach');
     this.sessionService.createSession(this.requestSession).subscribe();
     this.route.navigate([`/user/${localStorage.getItem('currentUser')}`]);
+  }
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    }
   }
 
 
