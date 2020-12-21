@@ -35,6 +35,7 @@ mat-form-field {
 img {
   height: 200px;
   width: 200px;
+  margin-bottom: 10px;
 }
 
 mat-card {
@@ -84,6 +85,12 @@ mat-button-toggle-group {
 .send-button{
   background-color: #FBC02D;
   align-self: flex-end;
+}
+
+p{
+  font-size: 20px;
+  margin: 15px;
+  font-style: italic;
 }
 
 

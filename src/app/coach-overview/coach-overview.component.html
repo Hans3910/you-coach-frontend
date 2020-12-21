@@ -1,4 +1,3 @@
-
 <mat-card class="container-card">
   <div class="filter-container">
     <mat-form-field appearance="standard">
@@ -36,57 +35,61 @@
       ||(selectedTopic===coach.topicTwo.name && isTopicInYear(coach.topicTwo, selectedGrade)))">
         <mat-card-title>{{coach.userInfo.firstName}} {{coach.userInfo.lastName}}</mat-card-title>
         <img src="{{coach.userInfo.pictureUrl}}">
-        {{coach.topicOne.name}}
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true"
-                                 *ngIf="coach.topicOne.name !==''">
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_1</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.secondGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_2</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.thirdGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_3</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fourthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_4</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fifthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_5</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.sixthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_6</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_7</mat-icon>
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-        {{coach.topicTwo.name}}
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true"
-                                 *ngIf="coach.topicTwo.name !==''">
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.firstGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_1</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.secondGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_2</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.thirdGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_3</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fourthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_4</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fifthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_5</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.sixthGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_6</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.seventhGrade ? colorLayout: 'white'}">
-            <mat-icon class="grade-icon">filter_7</mat-icon>
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-        <button mat-mini-fab class="send-button" (click)="navigateToCoachDetail(coach.coachId)" [style]="{'background': colorLayout}">
+        <div *ngIf="coach.topicOne.name !==''">
+          <p>{{coach.topicOne.name}}</p>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true"
+          >
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_1</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.secondGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_2</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.thirdGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_3</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fourthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_4</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fifthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_5</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.sixthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_6</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_7</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div *ngIf="coach.topicTwo.name !==''">
+          <p>{{coach.topicTwo.name}}</p>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true">
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.firstGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_1</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.secondGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_2</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.thirdGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_3</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fourthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_4</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.fifthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_5</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.sixthGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_6</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicTwo.seventhGrade ? colorLayout: 'white'}">
+              <mat-icon class="grade-icon">filter_7</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <button mat-mini-fab class="send-button" (click)="navigateToCoachDetail(coach.coachId)"
+                [style]="{'background': colorLayout}">
           <mat-icon>send</mat-icon>
         </button>
       </mat-card>
