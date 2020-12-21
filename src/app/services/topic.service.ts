@@ -8,7 +8,7 @@ import {TopicName} from '../model/TopicName';
 })
 export class TopicService {
 
-  private url = 'http://localhost:8080/topics';
+  private url = 'https://you-coach-team-athos.herokuapp.com/topics';
 
   constructor(private http: HttpClient) {
   }

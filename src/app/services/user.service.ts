@@ -9,7 +9,7 @@ import {Coachee} from '../model/Coachee';
 })
 export class UserService {
 
-  private url = 'http://localhost:8080/users';
+  private url = 'https://you-coach-team-athos.herokuapp.com/users';
 
   constructor(private http: HttpClient) {
   }

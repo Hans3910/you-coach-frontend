@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class SessionService {
-  url = 'http://localhost:8080/sessions';
+  url = 'https://you-coach-team-athos.herokuapp.com/sessions';
 
   constructor(private http: HttpClient) {
   }
