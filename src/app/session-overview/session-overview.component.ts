@@ -1,24 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {SessionService} from '../services/session.service';
-import {RequestSession} from '../model/request-session';
 import {ActivatedRoute} from '@angular/router';
-import {RequestSessionOverview} from "../model/request-session-overview";
-
+import {RequestSessionOverview} from '../model/request-session-overview';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-session-overview',
   templateUrl: './session-overview.component.html',
   styleUrls: ['./session-overview.component.css']
 })
-export class SessionOverviewComponent implements OnInit {
-  displayedColumns = ['coach', 'subject', 'date', 'time', 'location', 'status'];
-  requestSessions: RequestSessionOverview[] = [];
+
+export class SessionOverviewComponent implements OnInit, AfterViewInit {
+
+  constructor(private sessionService: SessionService, private route: ActivatedRoute) {
+  }
+
+  displayedColumns = ['coachFullName', 'subject', 'requestedDate', 'requestedTime', 'location', 'sessionStatus'];
+  // @ts-ignore
+  requestSessions: MatTableDataSource<RequestSessionOverview>;
   profileUrl = `user/test`;
   colorLayout = '#FBC02D';
   isCoach = false;
 
-  constructor(private sessionService: SessionService, private route: ActivatedRoute) {
-  }
+  @ViewChild(MatSort) sort: MatSort | undefined;
 
   ngOnInit(): void {
     this.getSessions();
@@ -26,12 +31,20 @@ export class SessionOverviewComponent implements OnInit {
     this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
   }
 
+  // tslint:disable-next-line:typedef
+  ngAfterViewInit() {
+    // @ts-ignore
+  }
+
   public getSessions(): void {
     const id = this.route.snapshot.paramMap.get('id');
     const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
 
     this.sessionService.getAllSessions(`${urlComponent}/${id}`).subscribe(sessions => {
-      this.requestSessions = sessions;
+      this.requestSessions = new MatTableDataSource(sessions);
+      // @ts-ignore
+      this.requestSessions.sort = this.sort;
+
       console.log(this.requestSessions);
     });
 

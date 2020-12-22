@@ -31,6 +31,7 @@ import {Filter} from './Filter';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
 import { SessionOverviewComponent } from './session-overview/session-overview.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatSortModule} from "@angular/material/sort";
 
 
 
@@ -72,7 +73,8 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],
