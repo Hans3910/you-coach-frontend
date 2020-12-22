@@ -30,8 +30,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {Filter} from './Filter';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
-
+import { SessionOverviewComponent } from './session-overview/session-overview.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -50,7 +50,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CoachRequestProfileChangeComponent,
     CoachOverviewComponent,
     Filter,
-    CoachDetailComponent
+    CoachDetailComponent,
+    SessionOverviewComponent
+
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],
