@@ -10,6 +10,7 @@ import {CoachProfileInformationComponent} from './coach-profile-information/coac
 import {CoachRequestProfileChangeComponent} from './coach-request-profile-change/coach-request-profile-change.component';
 import {CoachOverviewComponent} from './coach-overview/coach-overview.component';
 import {CoachDetailComponent} from './coach-detail/coach-detail.component';
+import {SessionOverviewComponent} from './session-overview/session-overview.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,7 +23,9 @@ const routes: Routes = [
     {path: 'coach/overview', component: CoachOverviewComponent},
     {path: 'coach/requestprofilechange', component: CoachRequestProfileChangeComponent},
     {path: 'coach/:id', component: CoachProfileInformationComponent},
-    {path: 'coachoverview/:id', component: CoachDetailComponent}
+    {path: 'coachoverview/:id', component: CoachDetailComponent},
+    {path: 'user/sessionoverview/:id', component: SessionOverviewComponent},
+    {path: 'coach/sessionoverview/:id', component: SessionOverviewComponent}
   ]
 ;
 

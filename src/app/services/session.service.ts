@@ -16,4 +16,9 @@ export class SessionService {
     console.log(requestSession);
     return this.http.post<RequestSession>(this.url, requestSession);
   }
+
+  public getAllSessions(): Observable<RequestSession[]> {
+    return this.http.get<RequestSession[]>(this.url);
+  }
 }
+

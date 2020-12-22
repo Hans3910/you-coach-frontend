@@ -28,8 +28,8 @@ import { CoachRequestProfileChangeComponent } from './coach-request-profile-chan
 import { CoachOverviewComponent } from './coach-overview/coach-overview.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
-
-
+import { SessionOverviewComponent } from './session-overview/session-overview.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -46,7 +46,8 @@ import { CoachDetailComponent } from './coach-detail/coach-detail.component';
     CoachProfileInformationComponent,
     CoachRequestProfileChangeComponent,
     CoachOverviewComponent,
-    CoachDetailComponent
+    CoachDetailComponent,
+    SessionOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +67,8 @@ import { CoachDetailComponent } from './coach-detail/coach-detail.component';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],
