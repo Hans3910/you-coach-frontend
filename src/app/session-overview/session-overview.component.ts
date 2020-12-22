@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SessionService} from '../services/session.service';
 import {RequestSession} from '../model/request-session';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -11,16 +12,38 @@ import {RequestSession} from '../model/request-session';
 export class SessionOverviewComponent implements OnInit {
   displayedColumns: string[] = ['subject', 'status'];
   requestSessions: RequestSession[] = [];
-  constructor(private sessionService: SessionService) { }
+  profileUrl = `user/test`;
+  colorLayout = '#FBC02D';
+  isCoach = false;
+
+  constructor(private sessionService: SessionService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.getSessions();
+    this.checkRole();
+    this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
   }
 
-  public getSessions(): void{
-    this.sessionService.getAllSessions().subscribe(sessions => this.requestSessions = sessions);
-}
+  public getSessions(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
 
+    this.sessionService.getAllSessions(`${urlComponent}/${id}`).subscribe(sessions => this.requestSessions = sessions);
+  }
 
+  private checkRole(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      this.isCoach = true;
+    } else {
+      this.isCoach = false;
+    }
+  }
 
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    } else {this.colorLayout = '#FBC02D';}
+  }
 }

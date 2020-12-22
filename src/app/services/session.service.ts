@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class SessionService {
   url = 'https://you-coach-team-athos.herokuapp.com/sessions';
+  urlDev = 'http://localhost:8080/sessions';
 
   constructor(private http: HttpClient) {
   }
@@ -17,8 +18,8 @@ export class SessionService {
     return this.http.post<RequestSession>(this.url, requestSession);
   }
 
-  public getAllSessions(): Observable<RequestSession[]> {
-    return this.http.get<RequestSession[]>(this.url);
+  public getAllSessions(urlComponent: string): Observable<RequestSession[]> {
+    return this.http.get<RequestSession[]>(`${this.urlDev}/${urlComponent}`);
   }
 }
 
