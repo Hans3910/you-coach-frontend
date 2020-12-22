@@ -10,7 +10,7 @@
       <div class="prof-info-header">
         <mat-card-title>My upcoming sessions</mat-card-title>
       </div>
-      <table mat-table [dataSource]="requestSessions" matSort matSortActive="requestedDate">
+      <table mat-table [dataSource]="requestSessions" matSort matSortActive="requestedDate" matSortDirection="asc">
         <ng-container matColumnDef="coachFullName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
           <td mat-cell *matCellDef="let requestSession"> {{requestSession.coachFullName}}</td>
@@ -20,7 +20,7 @@
           <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
         </ng-container>
         <ng-container matColumnDef="requestedDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
           <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
         </ng-container>
         <ng-container matColumnDef="requestedTime">

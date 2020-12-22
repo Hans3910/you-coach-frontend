@@ -23,6 +23,7 @@ export class SessionOverviewComponent implements OnInit, AfterViewInit {
   colorLayout = '#FBC02D';
   isCoach = false;
 
+
   @ViewChild(MatSort) sort: MatSort | undefined;
 
   ngOnInit(): void {
