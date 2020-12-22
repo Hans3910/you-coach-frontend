@@ -8,7 +8,7 @@ import {Coach} from '../model/Coach';
 })
 export class CoachService {
 
-  private url = 'http://localhost:8080/coach';
+  private url = 'https://you-coach-team-athos.herokuapp.com/coach';
 
   constructor(private http: HttpClient) {
   }
@@ -24,4 +24,5 @@ export class CoachService {
   public getAllCoaches(): Observable<Coach[]>{
     return this.http.get<Coach[]>(this.url);
   }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-become-a-coach',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./become-a-coach.component.css']
 })
 export class BecomeACoachComponent implements OnInit {
+  profileUrl = `user/test`;
+  colorLayout = '#FBC02D';
+  isCoach = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
+    this.checkRole();
+  }
+
+  private checkRole(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      this.isCoach = true;
+    }
+  }
 }

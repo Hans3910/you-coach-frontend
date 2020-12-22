@@ -1,27 +1,40 @@
 <header>
-  <mat-toolbar role="heading" class="row">
+  <mat-toolbar role="heading" class="row head-nav">
     <h1>{{title}}</h1>
     <mat-nav-list class="layout-right"> <!-- TODO-->
-      <button mat-button routerLink="/home">Home</button>
+      <button mat-button routerLink="/home" (click)="navigateToHome()">Home</button>
       <button mat-button routerLink="/aboutUs">About Us</button>
       <a href="mailto:admin1@school.org" mat-button>Contact</a>
-      <button class="sign-btn" mat-raised-button routerLink="/signin">Sign In <mat-icon aria-hidden="false" >person</mat-icon></button>
-      <button class="register-btn" mat-raised-button routerLink="/register">Register <mat-icon aria-hidden="false" >person_add</mat-icon></button>
-      <button class="signout-btn" mat-raised-button routerLink="/register">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
+      <button class="sign-btn" mat-raised-button (click)="signIn()" *ngIf="!userIsLoggedIn">Sign In <mat-icon aria-hidden="false" >person</mat-icon></button>
+      <button class="register-btn" mat-raised-button (click)="register()" *ngIf="!userIsLoggedIn">Register <mat-icon aria-hidden="false" >person_add</mat-icon></button>
+      <button class="signout-btn" mat-raised-button (click)="logOut()" *ngIf="userIsLoggedIn">Sign Out <mat-icon aria-hidden="false" >person</mat-icon></button>
     </mat-nav-list>
+  </mat-toolbar>
+  <mat-toolbar class="user-nav" *ngIf="userIsLoggedIn" [style]="{'background': colorLayout}">
+    <button mat-button (click)="navigateToProfile()">MY PROFILE</button>
+    <button mat-button routerLink="/coach/overview">FIND A COACH</button>
+    <button mat-button (click)="navigateToCoachProfile()" *ngIf="isCoach">COACH PROFILE</button>
   </mat-toolbar>
 </header>
 <div>
-  <router-outlet></router-outlet>
+  <div *ngIf="isSignInActive">
+    <app-sign-in (loggedIn)="logIn($event)"></app-sign-in>
+  </div>
+  <div *ngIf="isRegisterActive">
+    <app-register (loggedIn)="logIn($event)"></app-register>
+  </div>
+  <div *ngIf="!isSignInActive && !isRegisterActive">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<footer>
+<footer [style]="{'background': colorLayout}">
   <div class="footer-header">
 <div class="footer-youcoachdesc">
   <h1>{{title}}</h1>
   <p class="mat-body-1 footer-text">You-Coach is an academic program between students in secondary schools, supervised by the schools started by the
     <a href="http://www.make-it-happen.org" target="_blank">Make-It-Happen Foundation</a> </p>
 </div>
-  <div class="footer-navigation">
+  <div class="footer-navigation" [style]="{'background': colorLayout}">
     <h1>Navigation</h1>
     <ul class="footer-navigation-list">
       <li>
@@ -43,7 +56,7 @@
     </ul>
   </div>
   </div>
-  <div class="inline-footer">
+  <div class="inline-footer" [style]="{'background': colorLayoutSwitchFully}">
     <div class="inline-footer-item">
     <p class="mat-body-1">Web application proudly created by <a href="http://www.switchfully.com" target="_blank">Switchfully</a> students.</p>
     </div>

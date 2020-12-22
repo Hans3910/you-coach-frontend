@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   title = 'Sign in';
+  @Output() loggedIn = new EventEmitter<string>();
 
   constructor(private userService: UserService,
               private router: Router) {
@@ -23,6 +24,10 @@ export class SignInComponent implements OnInit {
     this.userService.signIn(email).subscribe(user => {
       loggedInUser = user;
       console.log(user);
+      localStorage.setItem('currentUser', loggedInUser.userInfo.userId);
+      localStorage.setItem('coacheeId', loggedInUser.coacheeId);
+      localStorage.setItem('coachId', loggedInUser.userInfo.coachId);
+      this.loggedIn.emit('output works');
       this.router.navigate([`/user/${loggedInUser?.userInfo.userId}`]);
     });
 

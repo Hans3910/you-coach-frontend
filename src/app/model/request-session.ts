@@ -1,6 +1,6 @@
 export class RequestSession {
-  coacheeId: string;
-  coachId: string;
+  coacheeId: string | null;
+  coachId: string | null;
   subject: string;
   requestedDate: string;
   requestedTime: string;

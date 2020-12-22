@@ -1,21 +1,14 @@
-<nav class="hnavigation">
-  <div class="hlinkcontainer">
-    <a>MY PROFILE</a>
-    <a>FIND A COACH</a>
-  </div>
-</nav>
-
 <div class="profile-container">
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
-    <a class="link-here" routerLink="/users/:id">Profile information</a>
-    <a routerLink="/coaching-sessions">Coaching sessions</a>
-    <a routerLink="/becomeacoach">Become a coach</a>
+    <button mat-button [style]="{'background': colorLayout}" class="side-nav-btn"> Profile information</button>
+    <button mat-button routerLink="/coaching-sessions" class="side-nav-btn">Coaching sessions</button>
+    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach" class="side-nav-btn">Become a coach</button>
   </nav>
   <mat-card>
     <div class="prof-info-header">
       <mat-card-title>Profile Information</mat-card-title>
-      <button mat-mini-fab class="edit-btn" (click)="edit()">
+      <button mat-mini-fab class="edit-btn" (click)="edit()" [style]="{'background': colorLayout}">
         <mat-icon>create</mat-icon>
       </button>
     </div>
@@ -51,7 +44,7 @@
           </mat-form-field>
           <mat-form-field appearance="standard">
             <mat-label>You-Coach Role</mat-label>
-            <select matNativeControl name="role" [disabled]="disableSelect.value">
+            <select matNativeControl name="role" [disabled]="disableSelect.value" [(ngModel)]="coachee.userInfo.role">
               <option value="" selected></option>
               <option value="coachee">Coachee</option>
               <option value="coach">Coach</option>

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coach-request-profile-change.component.css']
 })
 export class CoachRequestProfileChangeComponent implements OnInit {
-
+  profileUrl = `user/test`;
   constructor() { }
 
   ngOnInit(): void {
+    this.profileUrl = `/coach/${localStorage.getItem('coachId')}`;
   }
 
 }

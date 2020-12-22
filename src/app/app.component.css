@@ -1,7 +1,16 @@
-.mat-toolbar{
+.head-nav{
   justify-content: space-between;
   width: 80%;
   margin-left: 100px;
+}
+
+.user-nav{
+  background-color: black;
+  padding-left: 100px;
+}
+
+.user-nav > button {
+  font-size: 18px;
 }
 
 header{

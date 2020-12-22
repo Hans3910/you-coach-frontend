@@ -27,9 +27,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CoachRequestProfileChangeComponent } from './coach-request-profile-change/coach-request-profile-change.component';
 import { CoachOverviewComponent } from './coach-overview/coach-overview.component';
 import {MatSelectModule} from '@angular/material/select';
+import {Filter} from './Filter';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SessionOverviewComponent } from './session-overview/session-overview.component';
 import { MatTableModule } from '@angular/material/table';
+
 
 
 
@@ -46,8 +49,10 @@ import { MatTableModule } from '@angular/material/table';
     CoachProfileInformationComponent,
     CoachRequestProfileChangeComponent,
     CoachOverviewComponent,
+    Filter,
     CoachDetailComponent,
     SessionOverviewComponent
+
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatSnackBarModule,
     MatTableModule
   ],
   providers: [{

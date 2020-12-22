@@ -1,16 +1,12 @@
-<nav class="hnavigation">
-  <div class="hlinkcontainer">
-    <a>MY PROFILE</a>
-    <a>FIND A COACH</a>
-  </div>
-</nav>
+
 
 <div class="profile-container">
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
-    <a routerLink="/users/:id">Profile information</a>
-    <a routerLink="/coaching-sessions">Coaching sessions</a>
-    <a class="link-here" routerLink="/becomeacoach">Become a coach</a>
+    <button mat-button [routerLink]="profileUrl" class="side-nav-btn">Profile information</button>
+    <button mat-button routerLink="/coaching-sessions" class="side-nav-btn">Coaching sessions</button>
+    <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach" class="side-nav-btn-active side-nav-btn">Become a coach</button>
+
   </nav>
   <mat-card>
     <div class="prof-info-header">

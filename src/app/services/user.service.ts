@@ -9,7 +9,7 @@ import {Coachee} from '../model/Coachee';
 })
 export class UserService {
 
-  private url = 'http://localhost:8080/users';
+  private url = 'https://you-coach-team-athos.herokuapp.com/users';
 
   constructor(private http: HttpClient) {
   }
@@ -27,6 +27,6 @@ export class UserService {
   }
 
   public editUser(user: Coachee): Observable<Coachee> {
-    return this.http.post<Coachee>(`${this.url}/${user.coacheeId}`, user);
+    return this.http.post<Coachee>(`${this.url}/${user.userInfo.userId}`, user);
   }
 }

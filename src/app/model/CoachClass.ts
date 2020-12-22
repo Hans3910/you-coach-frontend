@@ -1,4 +1,5 @@
 import {Coach} from './Coach';
+import {User} from './user';
 
 export class CoachClass implements Coach {
   availability: string;
@@ -15,7 +16,7 @@ export class CoachClass implements Coach {
     firstGrade: boolean; fourthGrade: boolean; sixthGrade: boolean;
     secondGrade: boolean; thirdGrade: boolean; seventhGrade: boolean
   };
-  userInfo: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string };
+  userInfo: User;
 
 
   constructor(availability: string, coachId: string, coachXp: number, introduction: string,
@@ -29,7 +30,7 @@ export class CoachClass implements Coach {
                 fourthGrade: boolean; sixthGrade: boolean; secondGrade: boolean; thirdGrade: boolean;
                 seventhGrade: boolean
               },
-              userInfo: { userId: string; firstName: string; lastName: string; email: string; pictureUrl: string }) {
+              userInfo: User) {
     this.availability = availability;
     this.coachId = coachId;
     this.coachXp = coachXp;
