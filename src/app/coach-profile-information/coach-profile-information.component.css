@@ -11,6 +11,11 @@
   width: 30%;
 }
 
+h3 {
+  margin-bottom: 0;
+  font-size: large;
+}
+
 a {
   font-size: medium;
   padding: 8px;

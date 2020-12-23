@@ -9,7 +9,7 @@ import {RequestSessionOverview} from '../model/request-session-overview';
 })
 export class SessionService {
   url = 'https://you-coach-team-athos.herokuapp.com/sessions';
-  urlDev = 'http://localhost:8080/sessions';
+
 
   constructor(private http: HttpClient) {
   }
@@ -20,11 +20,11 @@ export class SessionService {
   }
 
   public getAllUpcomingSessions(urlComponent: string): Observable<RequestSessionOverview[]> {
-    return this.http.get<RequestSessionOverview[]>(`${this.urlDev}/${urlComponent}`);
+    return this.http.get<RequestSessionOverview[]>(`${this.url}/${urlComponent}`);
   }
 
   public getAllPastSessions(urlComponent: string): Observable<RequestSessionOverview[]> {
-    return this.http.get<RequestSessionOverview[]>(`${this.urlDev}/${urlComponent}/past`);
+    return this.http.get<RequestSessionOverview[]>(`${this.url}/${urlComponent}/past`);
   }
 }
 

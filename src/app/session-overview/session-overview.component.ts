@@ -26,7 +26,7 @@ export class SessionOverviewComponent implements OnInit {
   colorLayout = '#FBC02D';
   isCoach = false;
   pageName = '';
-
+  coachProfileUrl = '';
 
   @ViewChild(MatSort) sort: MatSort | undefined;
 
@@ -70,6 +70,7 @@ export class SessionOverviewComponent implements OnInit {
   private checkRole(): void {
     if (localStorage.getItem('coachId') !== '') {
       this.isCoach = true;
+      this.coachProfileUrl = `/coach/${localStorage.getItem('coachId')}`;
     } else {
       this.isCoach = false;
     }
