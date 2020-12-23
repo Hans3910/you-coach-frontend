@@ -82,40 +82,41 @@
       </div>
       <form #coachTopicsForm="ngForm" (ngSubmit)="editCoach()">
         <div *ngIf="disableTopics.value===false || coach.topicOne.name !==''">
-        <mat-form-field appearance="standard">
-          <input type="text" name="topic1" [(ngModel)]="coach.topicOne.name" matInput [disabled]="disableTopics.value">
-        </mat-form-field>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true"
-                                 [disabled]="disableTopics.value">
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneFirstGrade()">
-            <mat-icon class="grade-icon">filter_1</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.secondGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneSecondGrade()">
-            <mat-icon class="grade-icon">filter_2</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.thirdGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneThirdGrade()">
-            <mat-icon class="grade-icon">filter_3</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fourthGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneFourthGrade()">
-            <mat-icon class="grade-icon">filter_4</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fifthGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneFifthGrade()">
-            <mat-icon class="grade-icon">filter_5</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.sixthGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneSixthGrade()">
-            <mat-icon class="grade-icon">filter_6</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? '#80CBC4': 'white'}"
-                             (click)="disableTopics.value === false && topicOneSeventhGrade()">
-            <mat-icon class="grade-icon">filter_7</mat-icon>
-          </mat-button-toggle>
-        </mat-button-toggle-group>
+          <mat-form-field appearance="standard">
+            <input type="text" name="topic1" [(ngModel)]="coach.topicOne.name" matInput
+                   [disabled]="disableTopics.value">
+          </mat-form-field>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple="true"
+                                   [disabled]="disableTopics.value">
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.firstGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneFirstGrade()">
+              <mat-icon class="grade-icon">filter_1</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.secondGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneSecondGrade()">
+              <mat-icon class="grade-icon">filter_2</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.thirdGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneThirdGrade()">
+              <mat-icon class="grade-icon">filter_3</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fourthGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneFourthGrade()">
+              <mat-icon class="grade-icon">filter_4</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.fifthGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneFifthGrade()">
+              <mat-icon class="grade-icon">filter_5</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.sixthGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneSixthGrade()">
+              <mat-icon class="grade-icon">filter_6</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [ngStyle]="{'background-color':coach.topicOne.seventhGrade ? '#80CBC4': 'white'}"
+                               (click)="disableTopics.value === false && topicOneSeventhGrade()">
+              <mat-icon class="grade-icon">filter_7</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
         </div>
         <div *ngIf="disableTopics.value===false || coach.topicTwo.name !==''">
           <mat-form-field appearance="standard">

@@ -29,9 +29,9 @@ import { CoachOverviewComponent } from './coach-overview/coach-overview.componen
 import {MatSelectModule} from '@angular/material/select';
 import {Filter} from './Filter';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SessionOverviewComponent } from './session-overview/session-overview.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatSortModule} from "@angular/material/sort";
 
 
 
@@ -73,8 +73,8 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, ],

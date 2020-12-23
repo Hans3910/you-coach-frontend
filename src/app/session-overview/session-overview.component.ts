@@ -1,26 +1,81 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {SessionService} from '../services/session.service';
-import {RequestSession} from '../model/request-session';
-
+import {ActivatedRoute} from '@angular/router';
+import {RequestSessionOverview} from '../model/request-session-overview';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-session-overview',
   templateUrl: './session-overview.component.html',
   styleUrls: ['./session-overview.component.css']
 })
-export class SessionOverviewComponent implements OnInit {
-  displayedColumns: string[] = ['subject', 'status'];
-  requestSessions: RequestSession[] = [];
-  constructor(private sessionService: SessionService) { }
 
-  ngOnInit(): void {
-    this.getSessions();
+export class SessionOverviewComponent implements OnInit {
+
+  constructor(private sessionService: SessionService, private route: ActivatedRoute) {
   }
 
-  public getSessions(): void{
-    this.sessionService.getAllSessions().subscribe(sessions => this.requestSessions = sessions);
-}
+  displayedColumns = ['coachFullName', 'subject', 'requestedDate', 'requestedTime', 'location', 'sessionStatus'];
+  // @ts-ignore
+  requestSessions: MatTableDataSource<RequestSessionOverview>;
+  // @ts-ignore
+  pastRequestedSessions: MatTableDataSource<RequestSessionOverview>;
+  profileUrl = `user/test`;
+  colorLayout = '#FBC02D';
+  isCoach = false;
 
 
+  @ViewChild(MatSort) sort: MatSort | undefined;
 
+  ngOnInit(): void {
+    this.getUpcomingSessions();
+    this.getPastSessions();
+    this.checkRole();
+    this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
+  }
+
+
+  public getUpcomingSessions(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
+
+    this.sessionService.getAllUpcomingSessions(`${urlComponent}/${id}`).subscribe(sessions => {
+      this.requestSessions = new MatTableDataSource(sessions);
+      // @ts-ignore
+      this.requestSessions.sort = this.sort;
+
+      console.log(this.requestSessions);
+    });
+
+  }
+
+  public getPastSessions(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
+
+    this.sessionService.getAllPastSessions(`${urlComponent}/${id}`).subscribe(sessions => {
+      this.pastRequestedSessions = new MatTableDataSource(sessions);
+      // @ts-ignore
+      this.pastRequestedSessions.sort = this.sort;
+    });
+
+  }
+
+  private checkRole(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      this.isCoach = true;
+    } else {
+      this.isCoach = false;
+    }
+  }
+
+  private setColor(): void {
+    if (localStorage.getItem('coachId') !== '') {
+      console.log('change of color');
+      this.colorLayout = '#80CBC4';
+    } else {
+      this.colorLayout = '#FBC02D';
+    }
+  }
 }

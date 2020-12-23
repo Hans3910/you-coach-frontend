@@ -11,7 +11,7 @@ import {CoacheeClass} from '../model/CoacheeClass';
   styleUrls: ['./profile-information.component.css']
 })
 export class ProfileInformationComponent implements OnInit {
-
+sessionurl = '';
   editable = true;
   disableSelect = new FormControl(true);
   coachee = new CoacheeClass('', {
@@ -48,8 +48,9 @@ export class ProfileInformationComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     // @ts-ignore
     this.userService.getUser(id).subscribe(user => {
+      // @ts-ignore
       this.coachee = user;
-      console.log(this.coachee);
+      this.sessionurl = `/user/coacheeSessions/${this.coachee.coacheeId}`;
     });
   }
 
