@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CoachProfileInformationComponent implements OnInit {
   editable = true;
+  sessionurl = '';
   disableProfile = new FormControl(true);
   disableTopics = new FormControl(true);
   coach = new CoachClass('', '', 0, '', {
@@ -50,6 +51,7 @@ export class CoachProfileInformationComponent implements OnInit {
     // @ts-ignore
     this.coachService.getCoachById(id).subscribe(coach => {
       this.coach = coach;
+      this.sessionurl = `/coach/coachSessions/${this.coach.coachId}`;
       console.log(this.coach);
     });
   }

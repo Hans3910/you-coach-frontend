@@ -2,7 +2,9 @@
   <nav class="left-coachee-menu">
     <h3>My Profile</h3>
     <button mat-button [routerLink]="profileUrl" class="side-nav-btn">Profile information</button>
-    <button mat-button routerLink="/coaching-sessions" class="side-nav-btn"[style]="{'background-color':colorLayout}">Coaching sessions</button>
+    <button mat-button routerLink="/coaching-sessions" class="side-nav-btn" [style]="{'background-color':colorLayout}">
+      Coaching sessions
+    </button>
     <button mat-button routerLink="/becomeacoach" *ngIf="!isCoach" class="side-nav-btn">Become a coach</button>
   </nav>
   <div class="session-overview">
@@ -10,37 +12,68 @@
       <div class="prof-info-header">
         <mat-card-title>My upcoming sessions</mat-card-title>
       </div>
-      <table mat-table [dataSource]="requestSessions" matSort matSortActive="requestedDate" matSortDirection="asc">
-        <ng-container matColumnDef="coachFullName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.coachFullName}}</td>
-        </ng-container>
-        <ng-container matColumnDef="subject">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
-        </ng-container>
-        <ng-container matColumnDef="requestedDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
-        </ng-container>
-        <ng-container matColumnDef="requestedTime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
-        </ng-container>
-        <ng-container matColumnDef="location">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
-        </ng-container>
-        <ng-container matColumnDef="sessionStatus">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+      <div *ngIf="pageName === 'coacheeSessions'">
+        <table mat-table [dataSource]="requestSessions" matSort matSortActive="requestedDate" matSortDirection="asc">
+          <ng-container matColumnDef="coachFullName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.coachFullName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
+          </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
+          </ng-container>
+          <ng-container matColumnDef="sessionStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+      <div *ngIf="pageName === 'coachSessions'">
+        <table mat-table [dataSource]="requestSessions" matSort matSortActive="requestedDate" matSortDirection="asc">
+          <ng-container matColumnDef="coacheeFullName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Coachee</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.coacheeFullName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
+          </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
+          </ng-container>
+          <ng-container matColumnDef="sessionStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsCoach"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsCoach"></tr>
+        </table>
+      </div>
 
     </mat-card>
-
 
 
     <div class="pro-info-body">
@@ -60,34 +93,68 @@
       <div class="prof-info-header">
         <mat-card-title>Archive</mat-card-title>
       </div>
-      <table mat-table [dataSource]="pastRequestedSessions" matSort matSortActive="requestedDate" matSortDirection="asc">
-        <ng-container matColumnDef="coachFullName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
-          <td mat-cell *matCellDef="let pastRequestedSession"> {{pastRequestedSession.coachFullName}}</td>
-        </ng-container>
-        <ng-container matColumnDef="subject">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
-        </ng-container>
-        <ng-container matColumnDef="requestedDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
-        </ng-container>
-        <ng-container matColumnDef="requestedTime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
-        </ng-container>
-        <ng-container matColumnDef="location">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
-        </ng-container>
-        <ng-container matColumnDef="sessionStatus">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-          <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+      <div *ngIf="pageName === 'coacheeSessions'">
+        <table mat-table [dataSource]="pastRequestedSessions" matSort matSortActive="requestedDate"
+               matSortDirection="asc">
+          <ng-container matColumnDef="coachFullName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
+            <td mat-cell *matCellDef="let pastRequestedSession"> {{pastRequestedSession.coachFullName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
+          </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
+          </ng-container>
+          <ng-container matColumnDef="sessionStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+      <div *ngIf="pageName === 'coachSessions'">
+        <table mat-table [dataSource]="pastRequestedSessions" matSort matSortActive="requestedDate"
+               matSortDirection="asc">
+          <ng-container matColumnDef="coacheeFullName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Coachee</th>
+            <td mat-cell *matCellDef="let pastRequestedSession"> {{pastRequestedSession.coacheeFullName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.subject}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="requestedDate">Date</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedDate|date:"dd/MM/yyyy"}}</td>
+          </ng-container>
+          <ng-container matColumnDef="requestedTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.requestedTime}}</td>
+          </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.location}}</td>
+          </ng-container>
+          <ng-container matColumnDef="sessionStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let requestSession"> {{requestSession.sessionStatus}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsCoach"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsCoach"></tr>
+        </table>
+      </div>
       <div class="pro-info-body">
 
 

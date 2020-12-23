@@ -17,6 +17,7 @@ export class SessionOverviewComponent implements OnInit {
   }
 
   displayedColumns = ['coachFullName', 'subject', 'requestedDate', 'requestedTime', 'location', 'sessionStatus'];
+  displayedColumnsCoach = ['coacheeFullName', 'subject', 'requestedDate', 'requestedTime', 'location', 'sessionStatus'];
   // @ts-ignore
   requestSessions: MatTableDataSource<RequestSessionOverview>;
   // @ts-ignore
@@ -24,6 +25,7 @@ export class SessionOverviewComponent implements OnInit {
   profileUrl = `user/test`;
   colorLayout = '#FBC02D';
   isCoach = false;
+  pageName = '';
 
 
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -32,7 +34,10 @@ export class SessionOverviewComponent implements OnInit {
     this.getUpcomingSessions();
     this.getPastSessions();
     this.checkRole();
+    this.setColor();
     this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
+    // @ts-ignore
+    this.pageName = this.route.snapshot.paramMap.get('sessionoverview');
   }
 
 
