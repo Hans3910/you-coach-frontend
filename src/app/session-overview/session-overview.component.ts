@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./session-overview.component.css']
 })
 
-export class SessionOverviewComponent implements OnInit, AfterViewInit {
+export class SessionOverviewComponent implements OnInit {
 
   constructor(private sessionService: SessionService, private route: ActivatedRoute) {
   }
@@ -19,6 +19,8 @@ export class SessionOverviewComponent implements OnInit, AfterViewInit {
   displayedColumns = ['coachFullName', 'subject', 'requestedDate', 'requestedTime', 'location', 'sessionStatus'];
   // @ts-ignore
   requestSessions: MatTableDataSource<RequestSessionOverview>;
+  // @ts-ignore
+  pastRequestedSessions: MatTableDataSource<RequestSessionOverview>;
   profileUrl = `user/test`;
   colorLayout = '#FBC02D';
   isCoach = false;
@@ -27,26 +29,35 @@ export class SessionOverviewComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort | undefined;
 
   ngOnInit(): void {
-    this.getSessions();
+    this.getUpcomingSessions();
+    this.getPastSessions();
     this.checkRole();
     this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
   }
 
-  // tslint:disable-next-line:typedef
-  ngAfterViewInit() {
-    // @ts-ignore
-  }
 
-  public getSessions(): void {
+  public getUpcomingSessions(): void {
     const id = this.route.snapshot.paramMap.get('id');
     const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
 
-    this.sessionService.getAllSessions(`${urlComponent}/${id}`).subscribe(sessions => {
+    this.sessionService.getAllUpcomingSessions(`${urlComponent}/${id}`).subscribe(sessions => {
       this.requestSessions = new MatTableDataSource(sessions);
       // @ts-ignore
       this.requestSessions.sort = this.sort;
 
       console.log(this.requestSessions);
+    });
+
+  }
+
+  public getPastSessions(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    const urlComponent = this.route.snapshot.paramMap.get('sessionoverview');
+
+    this.sessionService.getAllPastSessions(`${urlComponent}/${id}`).subscribe(sessions => {
+      this.pastRequestedSessions = new MatTableDataSource(sessions);
+      // @ts-ignore
+      this.pastRequestedSessions.sort = this.sort;
     });
 
   }

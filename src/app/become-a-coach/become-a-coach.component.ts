@@ -9,12 +9,14 @@ export class BecomeACoachComponent implements OnInit {
   profileUrl = `user/test`;
   colorLayout = '#FBC02D';
   isCoach = false;
+  sessionurl = '';
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.profileUrl = `/user/${localStorage.getItem('currentUser')}`;
+    this.sessionurl = `/user/coacheeSessions/${localStorage.getItem('coacheeId')}`;
     this.checkRole();
   }
 

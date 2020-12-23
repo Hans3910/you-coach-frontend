@@ -51,7 +51,6 @@ sessionurl = '';
       // @ts-ignore
       this.coachee = user;
       this.sessionurl = `/user/coacheeSessions/${this.coachee.coacheeId}`;
-      console.log(this.coachee);
     });
   }
 

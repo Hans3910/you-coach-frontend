@@ -19,8 +19,12 @@ export class SessionService {
     return this.http.post<RequestSession>(this.url, requestSession);
   }
 
-  public getAllSessions(urlComponent: string): Observable<RequestSessionOverview[]> {
+  public getAllUpcomingSessions(urlComponent: string): Observable<RequestSessionOverview[]> {
     return this.http.get<RequestSessionOverview[]>(`${this.urlDev}/${urlComponent}`);
+  }
+
+  public getAllPastSessions(urlComponent: string): Observable<RequestSessionOverview[]> {
+    return this.http.get<RequestSessionOverview[]>(`${this.urlDev}/${urlComponent}/past`);
   }
 }
 
